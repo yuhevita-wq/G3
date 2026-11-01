@@ -1,0 +1,178 @@
+{
+  "year": "2022",
+  "source_repository": "yuhevita-wq/keirin-market-analysis-",
+  "archive_periods": [
+    "2022-Q1",
+    "2022-Q2",
+    "2022-Q3",
+    "2022-Q4"
+  ],
+  "source_files": [
+    {
+      "period": "2022-Q1",
+      "path": "data/archives/2022/g3-all-2022-q1-non-girls.zip",
+      "bytes": 3138945,
+      "sha256": "d21f840ae79865c8e0acee0c7833b066b94a2369b202fdd931d8792a616c098e",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2022-Q2",
+      "path": "data/archives/2022/g3-all-2022-q2-non-girls.zip",
+      "bytes": 2710683,
+      "sha256": "fbe6b33697fdaadfe88d3685560d762e90d7d5ee25ef90caa51077ab14959454",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2022-Q3",
+      "path": "data/archives/2022/g3-all-2022-q3-non-girls.zip",
+      "bytes": 2881683,
+      "sha256": "6082df65ca22ebd2aa013142efca61e160b49b701f31f2c0773309842d633dd0",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2022-Q4",
+      "path": "data/archives/2022/g3-all-2022-q4-non-girls.zip",
+      "bytes": 3148008,
+      "sha256": "553527bf4cf4e83bef0626eff0d1706b90b910ac81297b30a2f9ce09a7b30efa",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    }
+  ],
+  "raw_row_counts_by_period": {
+    "2022-Q1": {
+      "payouts": 4763,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 3,
+      "races": 527,
+      "entries": 4510,
+      "excluded_girls": 0,
+      "trio_final_odds": 38832,
+      "trifecta_final_odds": 232992,
+      "results": 4510,
+      "failures": 1
+    },
+    "2022-Q2": {
+      "payouts": 3881,
+      "result_failures": 1,
+      "line_failures": 0,
+      "odds_failures": 5,
+      "races": 431,
+      "entries": 3802,
+      "excluded_girls": 13,
+      "trio_final_odds": 33884,
+      "trifecta_final_odds": 203304,
+      "results": 3793,
+      "failures": 0
+    },
+    "2022-Q3": {
+      "payouts": 4495,
+      "result_failures": 3,
+      "line_failures": 0,
+      "odds_failures": 20,
+      "races": 501,
+      "entries": 4280,
+      "excluded_girls": 12,
+      "trio_final_odds": 35442,
+      "trifecta_final_odds": 212652,
+      "results": 4253,
+      "failures": 3
+    },
+    "2022-Q4": {
+      "payouts": 4652,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 7,
+      "races": 515,
+      "entries": 4488,
+      "excluded_girls": 13,
+      "trio_final_odds": 39303,
+      "trifecta_final_odds": 235818,
+      "results": 4488,
+      "failures": 0
+    }
+  },
+  "odds_warning": "Only FINAL post-race odds. Never assume pre-bet/pre-deadline availability.",
+  "line_warning": "Predicted lines are provider-published estimates, not official formations.",
+  "row_counts": {
+    "races": 1974,
+    "entries": 17080,
+    "results": 17044,
+    "payouts": 17791,
+    "trifecta_final_odds": 884766,
+    "trio_final_odds": 147461,
+    "failures": 4,
+    "line_failures": 0,
+    "result_failures": 4,
+    "odds_failures": 35,
+    "excluded_girls": 38
+  },
+  "quality": {
+    "races_missing_entries": 0,
+    "races_missing_results": 4,
+    "races_missing_trifecta_odds": 35,
+    "races_missing_trio_odds": 35,
+    "races_missing_payouts": 4,
+    "orphan_entries_rows": 0,
+    "orphan_results_rows": 0,
+    "orphan_payouts_rows": 0,
+    "orphan_trifecta_final_odds_rows": 0,
+    "orphan_trio_final_odds_rows": 0,
+    "non_g3_races": 0,
+    "race_date_outside_year": 0,
+    "race_line_missing": 0,
+    "odds_non_final_rows": 0,
+    "race_min_date": "2022-01-04",
+    "race_max_date": "2022-12-25"
+  },
+  "sqlite_uncompressed_bytes": 484958208,
+  "sqlite_gzip_bytes": 30988100,
+  "sqlite_gzip_sha256": "2aa9deb664b1ca14b8a9d125d17a65944ce4bbb2d7fd8f0435620284d33d6023"
+}

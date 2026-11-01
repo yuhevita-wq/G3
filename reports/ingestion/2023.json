@@ -1,0 +1,178 @@
+{
+  "year": "2023",
+  "source_repository": "yuhevita-wq/keirin-market-analysis-",
+  "archive_periods": [
+    "2023-Q1",
+    "2023-Q2",
+    "2023-Q3",
+    "2023-Q4"
+  ],
+  "source_files": [
+    {
+      "period": "2023-Q1",
+      "path": "data/archives/2023/g3-all-2023-q1-non-girls.zip",
+      "bytes": 3009006,
+      "sha256": "c478dbdc21a0f4515109e66143fce667df9e45af48ceb7c9e9a22ba15203b0b4",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2023-Q2",
+      "path": "data/archives/2023/g3-all-2023-q2-non-girls.zip",
+      "bytes": 3079525,
+      "sha256": "a27f1e39f1466e7ac6e01342ef58f70c525f5644bab5db498b528921ffff6a10",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2023-Q3",
+      "path": "data/archives/2023/g3-all-2023-q3-non-girls.zip",
+      "bytes": 3305114,
+      "sha256": "f9b5b0fcbde3262602526b5dc8a3af532893af39f41aca8dffda605aa03d3022",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2023-Q4",
+      "path": "data/archives/2023/g3-all-2023-q4-non-girls.zip",
+      "bytes": 3085214,
+      "sha256": "6ef183d93aca496fdcaba1e929c94075a00c016cf8715cdebb590075ea3be02d",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    }
+  ],
+  "raw_row_counts_by_period": {
+    "2023-Q1": {
+      "payouts": 4335,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 7,
+      "races": 480,
+      "entries": 4255,
+      "excluded_girls": 0,
+      "trio_final_odds": 38137,
+      "trifecta_final_odds": 228822,
+      "results": 4255,
+      "failures": 0
+    },
+    "2023-Q2": {
+      "payouts": 4430,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 6,
+      "races": 491,
+      "entries": 4334,
+      "excluded_girls": 13,
+      "trio_final_odds": 38691,
+      "trifecta_final_odds": 232146,
+      "results": 4334,
+      "failures": 0
+    },
+    "2023-Q3": {
+      "payouts": 4747,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 7,
+      "races": 527,
+      "entries": 4645,
+      "excluded_girls": 13,
+      "trio_final_odds": 41425,
+      "trifecta_final_odds": 248550,
+      "results": 4645,
+      "failures": 0
+    },
+    "2023-Q4": {
+      "payouts": 4438,
+      "result_failures": 0,
+      "line_failures": 0,
+      "odds_failures": 5,
+      "races": 492,
+      "entries": 4349,
+      "excluded_girls": 0,
+      "trio_final_odds": 38912,
+      "trifecta_final_odds": 233472,
+      "results": 4349,
+      "failures": 0
+    }
+  },
+  "odds_warning": "Only FINAL post-race odds. Never assume pre-bet/pre-deadline availability.",
+  "line_warning": "Predicted lines are provider-published estimates, not official formations.",
+  "row_counts": {
+    "races": 1990,
+    "entries": 17583,
+    "results": 17583,
+    "payouts": 17950,
+    "trifecta_final_odds": 942990,
+    "trio_final_odds": 157165,
+    "failures": 0,
+    "line_failures": 0,
+    "result_failures": 0,
+    "odds_failures": 25,
+    "excluded_girls": 26
+  },
+  "quality": {
+    "races_missing_entries": 0,
+    "races_missing_results": 0,
+    "races_missing_trifecta_odds": 25,
+    "races_missing_trio_odds": 25,
+    "races_missing_payouts": 0,
+    "orphan_entries_rows": 0,
+    "orphan_results_rows": 0,
+    "orphan_payouts_rows": 0,
+    "orphan_trifecta_final_odds_rows": 0,
+    "orphan_trio_final_odds_rows": 0,
+    "non_g3_races": 0,
+    "race_date_outside_year": 0,
+    "race_line_missing": 0,
+    "odds_non_final_rows": 0,
+    "race_min_date": "2023-01-04",
+    "race_max_date": "2023-12-24"
+  },
+  "sqlite_uncompressed_bytes": 516108288,
+  "sqlite_gzip_bytes": 32754185,
+  "sqlite_gzip_sha256": "f9fd64b1941df87a8af153407bb48378ae316267f442c0d422b8914bbdf6130b"
+}

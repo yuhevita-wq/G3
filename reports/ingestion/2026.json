@@ -1,0 +1,112 @@
+{
+  "year": "2026",
+  "source_repository": "yuhevita-wq/keirin-market-analysis-",
+  "archive_periods": [
+    "2026-Q1",
+    "2026-Q2"
+  ],
+  "source_files": [
+    {
+      "period": "2026-Q1",
+      "path": "data/archives/2026/g3-2026-q1.zip",
+      "bytes": 3568674,
+      "sha256": "b8a1a7cc1244123d627e2f597f1372f5b9103c4a3ea51c4fcfa7baab2791ebde",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2026-Q2",
+      "path": "data/archives/2026/g3-2026-q2.zip",
+      "bytes": 3139901,
+      "sha256": "ebdf5ff21f13e56518921c1dd56b181411715dfde108b6757ebf091dc14f97fc",
+      "members": [
+        "entries.csv",
+        "excluded_girls.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    }
+  ],
+  "raw_row_counts_by_period": {
+    "2026-Q1": {
+      "entries": 5003,
+      "excluded_girls": 12,
+      "failures": 0,
+      "line_failures": 0,
+      "odds_failures": 5,
+      "payouts": 5084,
+      "races": 564,
+      "result_failures": 0,
+      "results": 5003,
+      "trifecta_final_odds": 270618,
+      "trio_final_odds": 45103
+    },
+    "2026-Q2": {
+      "entries": 4566,
+      "excluded_girls": 30,
+      "failures": 0,
+      "line_failures": 0,
+      "odds_failures": 2,
+      "payouts": 4738,
+      "races": 525,
+      "result_failures": 0,
+      "results": 4566,
+      "trifecta_final_odds": 240372,
+      "trio_final_odds": 40062
+    }
+  },
+  "odds_warning": "Only FINAL post-race odds. Never assume pre-bet/pre-deadline availability.",
+  "line_warning": "Predicted lines are provider-published estimates, not official formations.",
+  "row_counts": {
+    "races": 1089,
+    "entries": 9569,
+    "results": 9569,
+    "payouts": 9822,
+    "trifecta_final_odds": 510990,
+    "trio_final_odds": 85165,
+    "failures": 0,
+    "line_failures": 0,
+    "result_failures": 0,
+    "odds_failures": 7,
+    "excluded_girls": 42
+  },
+  "quality": {
+    "races_missing_entries": 0,
+    "races_missing_results": 0,
+    "races_missing_trifecta_odds": 7,
+    "races_missing_trio_odds": 7,
+    "races_missing_payouts": 0,
+    "orphan_entries_rows": 0,
+    "orphan_results_rows": 0,
+    "orphan_payouts_rows": 0,
+    "orphan_trifecta_final_odds_rows": 0,
+    "orphan_trio_final_odds_rows": 0,
+    "non_g3_races": 0,
+    "race_date_outside_year": 0,
+    "race_line_missing": 0,
+    "odds_non_final_rows": 0,
+    "race_min_date": "2026-01-04",
+    "race_max_date": "2026-06-30"
+  },
+  "sqlite_uncompressed_bytes": 266735616,
+  "sqlite_gzip_bytes": 17777105,
+  "sqlite_gzip_sha256": "1cc6c481334e003bfe4c565dfdc8d45a1f8ed4aeea06b08efa7fb781c597d575"
+}

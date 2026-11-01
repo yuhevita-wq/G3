@@ -1,0 +1,170 @@
+{
+  "year": "2024",
+  "source_repository": "yuhevita-wq/keirin-market-analysis-",
+  "archive_periods": [
+    "2024-Q1",
+    "2024-Q2",
+    "2024-Q3",
+    "2024-Q4"
+  ],
+  "source_files": [
+    {
+      "period": "2024-Q1",
+      "path": "data/archives/2024/g3-2024-q1.zip",
+      "bytes": 3208302,
+      "sha256": "1c7e4ca4b6eea44cec3eb378d673a5a61fa03dd7a6b56653d1f94580097edaac",
+      "members": [
+        "entries.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2024-Q2",
+      "path": "data/archives/2024/g3-2024-q2.zip",
+      "bytes": 2880495,
+      "sha256": "e89b9768dd331618ab21b4bc3512a48519cd4a795d2b71531b685775ae9554c1",
+      "members": [
+        "entries.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2024-Q3",
+      "path": "data/archives/2024/g3-2024-q3.zip",
+      "bytes": 2992539,
+      "sha256": "ceee1476c03b7dfa9719ed2800c90604180d6211b80cc2abe954615cffe46b1e",
+      "members": [
+        "entries.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    },
+    {
+      "period": "2024-Q4",
+      "path": "data/archives/2024/g3-2024-q4.zip",
+      "bytes": 3143641,
+      "sha256": "07799921346f2070f5330425983127e884ce95ba8d13b7dbc02b725a21cb7eef",
+      "members": [
+        "entries.csv",
+        "failures.csv",
+        "line_failures.csv",
+        "odds_failures.csv",
+        "payouts.csv",
+        "races.csv",
+        "result_failures.csv",
+        "results.csv",
+        "trifecta_final_odds.csv",
+        "trio_final_odds.csv"
+      ]
+    }
+  ],
+  "raw_row_counts_by_period": {
+    "2024-Q1": {
+      "entries": 4552,
+      "failures": 0,
+      "line_failures": 0,
+      "odds_failures": 4,
+      "payouts": 4649,
+      "races": 515,
+      "result_failures": 0,
+      "results": 4552,
+      "trifecta_final_odds": 246288,
+      "trio_final_odds": 41048
+    },
+    "2024-Q2": {
+      "entries": 4129,
+      "failures": 13,
+      "line_failures": 0,
+      "odds_failures": 2,
+      "payouts": 4207,
+      "races": 467,
+      "result_failures": 0,
+      "results": 4129,
+      "trifecta_final_odds": 223806,
+      "trio_final_odds": 37301
+    },
+    "2024-Q3": {
+      "entries": 4357,
+      "failures": 6,
+      "line_failures": 0,
+      "odds_failures": 3,
+      "payouts": 4412,
+      "races": 501,
+      "result_failures": 0,
+      "results": 4348,
+      "trifecta_final_odds": 229626,
+      "trio_final_odds": 38271
+    },
+    "2024-Q4": {
+      "entries": 4512,
+      "failures": 15,
+      "line_failures": 0,
+      "odds_failures": 4,
+      "payouts": 4642,
+      "races": 513,
+      "result_failures": 0,
+      "results": 4512,
+      "trifecta_final_odds": 241254,
+      "trio_final_odds": 40209
+    }
+  },
+  "odds_warning": "Only FINAL post-race odds. Never assume pre-bet/pre-deadline availability.",
+  "line_warning": "Predicted lines are provider-published estimates, not official formations.",
+  "row_counts": {
+    "races": 1996,
+    "entries": 17550,
+    "results": 17541,
+    "payouts": 17910,
+    "trifecta_final_odds": 940974,
+    "trio_final_odds": 156829,
+    "failures": 34,
+    "line_failures": 0,
+    "result_failures": 0,
+    "odds_failures": 13,
+    "excluded_girls": 0
+  },
+  "quality": {
+    "races_missing_entries": 0,
+    "races_missing_results": 1,
+    "races_missing_trifecta_odds": 13,
+    "races_missing_trio_odds": 13,
+    "races_missing_payouts": 1,
+    "orphan_entries_rows": 0,
+    "orphan_results_rows": 0,
+    "orphan_payouts_rows": 0,
+    "orphan_trifecta_final_odds_rows": 0,
+    "orphan_trio_final_odds_rows": 0,
+    "non_g3_races": 0,
+    "race_date_outside_year": 0,
+    "race_line_missing": 0,
+    "odds_non_final_rows": 0,
+    "race_min_date": "2024-01-05",
+    "race_max_date": "2024-12-22"
+  },
+  "sqlite_uncompressed_bytes": 489918464,
+  "sqlite_gzip_bytes": 32505341,
+  "sqlite_gzip_sha256": "1ab10e5541cb403ebe12ce681e3c5f52d18edc6e7ea1764705c5aa559a13d0fe"
+}
