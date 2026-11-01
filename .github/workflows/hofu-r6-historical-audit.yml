@@ -1,7 +1,7 @@
-name: Hofu 2026-11-01 9R historical G3 second-round and bank record
+name: Hofu 2026-11-01 10R historical G3 second-round and bank record
 on:
   push:
-    branches: [analysis/hofu-20261101-r9-rider-history]
+    branches: [analysis/hofu-20261101-r10-rider-history]
     paths:
       - ".github/workflows/hofu-r6-historical-audit.yml"
 permissions:
@@ -26,18 +26,18 @@ jobs:
           from collections import Counter
           from datetime import date
           ROOT=Path.cwd()
-          out=ROOT/"reports/hofu_20261101_r9"
+          out=ROOT/"reports/hofu_20261101_r10"
           out.mkdir(parents=True,exist_ok=True)
           runners=[
-             (1,"山形一気","徳島",96),
-             (2,"村上博幸","京都",86),
-             (3,"山崎芳仁","福島",88),
-             (4,"川越勇星","神奈川",111),
-             (5,"桑原大志","山口",80),
-             (6,"浮島知稀","群馬",123),
-             (7,"石塚慶一郎","和歌山",119),
-             (8,"佐藤真一","東京",79),
-             (9,"太田海也","岡山",121),
+             (1,"南修二","大阪",88),
+             (2,"室井蓮太朗","徳島",121),
+             (3,"渡辺正光","福島",95),
+             (4,"西田雅志","広島",82),
+             (5,"三谷将太","奈良",92),
+             (6,"西村行貴","東京",92),
+             (7,"貴志修己","和歌山",117),
+             (8,"五十嵐綾","福島",121),
+             (9,"佐々木豪","愛媛",109),
           ]
           def norm(x):
               return "".join(unicodedata.normalize("NFKC",str(x or "")).split()).replace("澤","沢").replace("樂","楽").replace("﨑","崎")
@@ -47,7 +47,7 @@ jobs:
           for year in range(2022,2027):
               src=ROOT/"data"/"ready"/("g3_"+str(year)+".sqlite.gz")
               if not src.exists(): raise RuntimeError("Missing G3 archive: "+str(src))
-              temp=Path("/tmp")/("hofu_g3_r9_"+str(year)+".sqlite")
+              temp=Path("/tmp")/("hofu_g3_r10_"+str(year)+".sqlite")
               temp.unlink(missing_ok=True)
               try:
                   with gzip.open(src,"rb") as inp,temp.open("wb") as dst: shutil.copyfileobj(inp,dst,1024*1024)
@@ -112,7 +112,7 @@ jobs:
               if invalid:raise RuntimeError("Malformed day/date: "+name+" "+str(invalid[:2]))
               day2=[x for x in xs if is_day2(x)]
               prelim=[x for x in day2 if is_2prelim(x)]
-              prelim6=[x for x in prelim if int(x["race_no"])==9]
+              prelim6=[x for x in prelim if int(x["race_no"])==10]
               prelim9=[x for x in prelim if int(x["entry_count"] or 0)==9]
               recent=[x for x in prelim if x["race_date"]>="2025-01-01"]
               hof=[x for x in xs if hofu(x)]
@@ -122,7 +122,7 @@ jobs:
                   g3_day2_all=stats(day2),
                   g3_day2_second_prelim=stats(prelim),
                   g3_day2_second_prelim_nine_car=stats(prelim9),
-                  g3_day2_second_prelim_r9=stats(prelim6),
+                  g3_day2_second_prelim_r10=stats(prelim6),
                   g3_day2_second_prelim_2025plus=stats(recent),
                   hofu_g3_all=stats(hof),
                   hofu_g3_2024plus=stats(hofnew),
@@ -140,7 +140,7 @@ jobs:
           with (out/"day2_second_prelim_and_hofu_starts.csv").open("w",encoding="utf-8-sig",newline="") as f:
               wr=csv.DictWriter(f,fieldnames=list(flat[0].keys()))
               wr.writeheader();wr.writerows(flat)
-          md=["# 防府G3 2026-11-01 9R：9選手の過去G3開催2日目二次予選・防府成績","","対象：2022〜2025年通年＋2026年1〜6月。今開催（2026年11月1日）の結果は含まない。","",
+          md=["# 防府G3 2026-11-01 10R：9選手の過去G3開催2日目二次予選・防府成績","","対象：2022〜2025年通年＋2026年1〜6月。今開催（2026年11月1日）の結果は含まない。","",
               "## 全国G3 2日目二次予選（R番号問わず）","",
               "| 車 | 選手 | 出走 | 1-2-3-その他 | 勝率 | 2連対 | 3連対 |","|---:|---|---:|---|---:|---:|---:|"]
           for x in cohort:
@@ -151,7 +151,7 @@ jobs:
           for x in cohort:
               z=x["hofu_g3_all"]
               md.append("| "+str(x["car"])+" | "+x["name"]+" | "+str(z["starts"])+" | "+str(z["first"])+"-"+str(z["second"])+"-"+str(z["third"])+"-"+str(z["other"])+" | "+(str(z["top3_pct"])+"%" if z["top3_pct"] is not None else "—")+" |")
-          md+=["","## 完全な履歴と条件別集計","", "historical_riders_2022_2026h1.json に、9R限定、2025年以降限定、2024年11月以降の防府G3、各選手の対象レース履歴を保存。","","注意：防府のF1/G2成績はG3アーカイブには収録されていないため本集計に含まない。"]
+          md+=["","## 完全な履歴と条件別集計","", "historical_riders_2022_2026h1.json に、10R限定、2025年以降限定、2024年11月以降の防府G3、各選手の対象レース履歴を保存。","","注意：防府のF1/G2成績はG3アーカイブには収録されていないため本集計に含まない。"]
           (out/"rider_history_report.md").write_text("\n".join(md)+"\n",encoding="utf-8")
           print(json.dumps({"quality":output["quality"],"riders":[{"car":x["car"],"name":x["name"],"prelim":x["g3_day2_second_prelim"],"hofu":x["hofu_g3_all"],"hofu_dates":[y["race_date"] for y in x["hofu_g3_records"]]} for x in cohort]},ensure_ascii=False))
           PY
@@ -160,8 +160,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add reports/hofu_20261101_r9/
+          git add reports/hofu_20261101_r10/
           git diff --cached --quiet && exit 0
           git commit -m 'analysis: Hofu 6R nine riders G3 day2 second prelim and Hofu track histories'
-          git pull --rebase origin analysis/hofu-20261101-r9-rider-history
-          git push origin HEAD:analysis/hofu-20261101-r9-rider-history
+          git pull --rebase origin analysis/hofu-20261101-r10-rider-history
+          git push origin HEAD:analysis/hofu-20261101-r10-rider-history
