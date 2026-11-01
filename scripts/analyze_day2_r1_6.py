@@ -335,7 +335,7 @@ def make_report(rows, exclusions):
         "",
         "## 件数・品質",
         "",
-        md_table(["項目", "件数"], [[k, f"{v:,}"] for k,v in grade_quality.items()]),
+        md_table(["項目", "件数"], [[k, (json.dumps(v, ensure_ascii=False) if isinstance(v, dict) else f"{v:,}")] for k,v in grade_quality.items()]),
         "",
         "## 全体の配当分布",
         "",
