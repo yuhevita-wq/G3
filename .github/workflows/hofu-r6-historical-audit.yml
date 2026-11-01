@@ -1,0 +1,163 @@
+name: Hofu 2026-11-01 6R historical G3 second-round and bank record
+on:
+  push:
+    branches: [analysis/hofu-20261101-r6-rider-history]
+    paths:
+      - ".github/workflows/hofu-r6-historical-audit.yml"
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Extract individual 9 rider histories 2022 through June 2026
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,gzip,shutil,sqlite3,statistics,json,unicodedata
+          from collections import Counter
+          from datetime import date
+          ROOT=Path.cwd()
+          out=ROOT/"reports/hofu_20261101_r6"
+          out.mkdir(parents=True,exist_ok=True)
+          runners=[
+             (1,"猿樂楓樹","岡山",127),
+             (2,"東矢圭吾","熊本",121),
+             (3,"長島大介","栃木",96),
+             (4,"市橋司優人","福岡",103),
+             (5,"取鳥雄吾","岡山",107),
+             (6,"大崎飛雄馬","愛媛",88),
+             (7,"山崎将幸","宮城",92),
+             (8,"佐山寛明","奈良",113),
+             (9,"森田一郎","埼玉",125),
+          ]
+          def norm(x):
+              return "".join(unicodedata.normalize("NFKC",str(x or "")).split()).replace("澤","沢").replace("樂","楽").replace("﨑","崎")
+          aliases={norm(r[1]):r for r in runners}
+          collected={r[0]:[] for r in runners}
+          conflicts=[]
+          for year in range(2022,2027):
+              src=ROOT/"data"/"ready"/("g3_"+str(year)+".sqlite.gz")
+              if not src.exists(): raise RuntimeError("Missing G3 archive: "+str(src))
+              temp=Path("/tmp")/("hofu_g3_r6_"+str(year)+".sqlite")
+              temp.unlink(missing_ok=True)
+              try:
+                  with gzip.open(src,"rb") as inp,temp.open("wb") as dst: shutil.copyfileobj(inp,dst,1024*1024)
+                  with sqlite3.connect("file:"+str(temp)+"?mode=ro",uri=True) as db:
+                      db.row_factory=sqlite3.Row
+                      sql="""
+                      SELECT r.race_id,r.race_date,r.track,r.race_no,r.race_type,r.entry_count,r.predicted_line_formation,
+                        e.car_no,e.player_name,e.prefecture,e.term,e."class" AS rider_class,
+                        e.score,e.line_position,e.line_role,e.line_size,
+                        x.finish_position,x.finish_text,x.winning_method,x.sb,x.result_comment
+                      FROM races r JOIN entries e ON e.race_id=r.race_id
+                      LEFT JOIN results x ON x.race_id=e.race_id AND x.car_no=e.car_no
+                      WHERE r.race_date < '2026-11-01'
+                        AND e."class" IN ('SS','S1','S2')
+                        AND NOT EXISTS (SELECT 1 FROM entries other
+                          WHERE other.race_id=r.race_id
+                            AND (other."class" IS NULL OR other."class" NOT IN ('SS','S1','S2')))
+                      ORDER BY r.race_date,r.race_no
+                      """
+                      for raw in db.execute(sql):
+                          x=dict(raw); name=norm(x["player_name"])
+                          if name not in aliases: continue
+                          car,expected,pref,term=aliases[name]
+                          if norm(x["prefecture"])!=norm(pref) or str(x["term"])!=str(term):
+                              conflicts.append(dict(name=expected,found_name=x["player_name"],found_pref=x["prefecture"],found_term=x["term"],race_id=x["race_id"]))
+                              continue
+                          x["today_car"]=car
+                          x["today_name"]=expected
+                          rid=str(x["race_id"])
+                          try:
+                              start=date(int(rid[2:6]),int(rid[6:8]),int(rid[8:10]))
+                              actual=date.fromisoformat(x["race_date"])
+                              x["meeting_day"]=int(rid[10:12])
+                              x["day_valid"]=(actual-start).days==x["meeting_day"]-1 and int(rid[12:16])==int(x["race_no"])
+                          except (ValueError,TypeError):
+                              x["meeting_day"]=None;x["day_valid"]=False
+                          collected[car].append(x)
+              finally: temp.unlink(missing_ok=True)
+          if conflicts:raise RuntimeError("Identity ambiguity: "+str(conflicts[:15]))
+          def is_day2(x):return x["day_valid"] and x["meeting_day"]==2
+          def is_2prelim(x):return "二予" in norm(x["race_type"]) or "二次予" in norm(x["race_type"])
+          def hofu(x):return "防府" in norm(x["track"])
+          def finish(x):
+              try: return int(x["finish_position"]) if x["finish_position"] is not None and int(x["finish_position"])>=1 else None
+              except (ValueError,TypeError): return None
+          def stats(ride):
+              n=len(ride); c=Counter(finish(x) for x in ride)
+              a=c.get(1,0); b=c.get(2,0); d=c.get(3,0)
+              num=[finish(x) for x in ride if finish(x) is not None]
+              return dict(starts=n,first=a,second=b,third=d,other=n-a-b-d,win_pct=round(100*a/n,1) if n else None,top2_pct=round(100*(a+b)/n,1) if n else None,top3_pct=round(100*(a+b+d)/n,1) if n else None,mean_finish=round(statistics.fmean(num),2) if num else None,missing_result=sum(x["finish_position"] is None and x["finish_text"] is None for x in ride),methods=dict(Counter(norm(x["winning_method"]) for x in ride if finish(x)==1)))
+          cohort=[]
+          flat=[]
+          for car,name,pref,term in runners:
+              xs=collected[car]
+              ids=[x["race_id"] for x in xs]
+              if len(set(ids))!=len(ids):raise RuntimeError("Duplicate start: "+name)
+              invalid=[x for x in xs if not x["day_valid"]]
+              if invalid:raise RuntimeError("Malformed day/date: "+name+" "+str(invalid[:2]))
+              day2=[x for x in xs if is_day2(x)]
+              prelim=[x for x in day2 if is_2prelim(x)]
+              prelim6=[x for x in prelim if int(x["race_no"])==6]
+              prelim9=[x for x in prelim if int(x["entry_count"] or 0)==9]
+              recent=[x for x in prelim if x["race_date"]>="2025-01-01"]
+              hof=[x for x in xs if hofu(x)]
+              hofnew=[x for x in hof if x["race_date"]>="2024-11-01"]
+              hof2=[x for x in hof if is_day2(x) and is_2prelim(x)]
+              obj=dict(car=car,name=name,pref=pref,term=term,
+                  g3_day2_all=stats(day2),
+                  g3_day2_second_prelim=stats(prelim),
+                  g3_day2_second_prelim_nine_car=stats(prelim9),
+                  g3_day2_second_prelim_r6=stats(prelim6),
+                  g3_day2_second_prelim_2025plus=stats(recent),
+                  hofu_g3_all=stats(hof),
+                  hofu_g3_2024plus=stats(hofnew),
+                  hofu_g3_day2_second_prelim=stats(hof2),
+                  g3_day2_second_prelim_race_types=dict(Counter(norm(x["race_type"]) for x in prelim)),
+                  hofu_g3_by_year={y:stats([x for x in hof if x["race_date"].startswith(str(y))]) for y in range(2022,2027)},
+                  g3_day2_second_prelim_records=[{k:x[k] for k in ("race_date","track","race_no","race_type","entry_count","finish_position","finish_text","winning_method","score","car_no","predicted_line_formation")} for x in sorted(prelim,key=lambda x:x["race_date"],reverse=True)],
+                  hofu_g3_records=[{k:x[k] for k in ("race_date","track","race_no","race_type","entry_count","finish_position","finish_text","winning_method","score","car_no","predicted_line_formation")} for x in sorted(hof,key=lambda x:x["race_date"],reverse=True)])
+              cohort.append(obj)
+              for x in xs:
+                  if (is_day2(x) and is_2prelim(x)) or hofu(x):
+                      flat.append({k:x.get(k) for k in ("today_car","today_name","race_date","track","race_no","race_type","meeting_day","entry_count","car_no","finish_position","finish_text","winning_method","score","predicted_line_formation","race_id")})
+          output=dict(scope="All archived men's S-class G3 2022-2025 full years and 2026 Jan-June; 2026-11-01 result excluded",definitions=dict(day2="meeting day code=02 and verified race date",second_prelim="race_type contains 二予 or 二次予",hofu="track contains 防府; G3 only, all meeting days; F1 and G2 excluded",denominator="per player per recorded historical start, nonfinishes included"),riders=cohort,quality=dict(total_g3_starts_of_nine=sum(len(x) for x in collected.values()),identity_conflicts=conflicts,day_date_mismatches=0,duplicate_starts=0))
+          (out/"historical_riders_2022_2026h1.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with (out/"day2_second_prelim_and_hofu_starts.csv").open("w",encoding="utf-8-sig",newline="") as f:
+              wr=csv.DictWriter(f,fieldnames=list(flat[0].keys()))
+              wr.writeheader();wr.writerows(flat)
+          md=["# 防府G3 2026-11-01 6R：9選手の過去G3開催2日目二次予選・防府成績","","対象：2022〜2025年通年＋2026年1〜6月。今開催（2026年11月1日）の結果は含まない。","",
+              "## 全国G3 2日目二次予選（R番号問わず）","",
+              "| 車 | 選手 | 出走 | 1-2-3-その他 | 勝率 | 2連対 | 3連対 |","|---:|---|---:|---|---:|---:|---:|"]
+          for x in cohort:
+              z=x["g3_day2_second_prelim"]
+              f=lambda k: (str(z[k])+"%") if z[k] is not None else "—"
+              md.append("| "+str(x["car"])+" | "+x["name"]+" | "+str(z["starts"])+" | "+str(z["first"])+"-"+str(z["second"])+"-"+str(z["third"])+"-"+str(z["other"])+" | "+f("win_pct")+" | "+f("top2_pct")+" | "+f("top3_pct")+" |")
+          md += ["","## 防府G3（開催日問わず）","","| 車 | 選手 | 出走 | 1-2-3-その他 | 3連対 |","|---:|---|---:|---|---:|"]
+          for x in cohort:
+              z=x["hofu_g3_all"]
+              md.append("| "+str(x["car"])+" | "+x["name"]+" | "+str(z["starts"])+" | "+str(z["first"])+"-"+str(z["second"])+"-"+str(z["third"])+"-"+str(z["other"])+" | "+(str(z["top3_pct"])+"%" if z["top3_pct"] is not None else "—")+" |")
+          md+=["","## 完全な履歴と条件別集計","", "historical_riders_2022_2026h1.json に、6R限定、2025年以降限定、2024年11月以降の防府G3、各選手の対象レース履歴を保存。","","注意：防府のF1/G2成績はG3アーカイブには収録されていないため本集計に含まない。"]
+          (out/"rider_history_report.md").write_text("\n".join(md)+"\n",encoding="utf-8")
+          print(json.dumps({"quality":output["quality"],"riders":[{"car":x["car"],"name":x["name"],"prelim":x["g3_day2_second_prelim"],"hofu":x["hofu_g3_all"],"hofu_dates":[y["race_date"] for y in x["hofu_g3_records"]]} for x in cohort]},ensure_ascii=False))
+          PY
+      - name: Commit results to isolated branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/hofu_20261101_r6/
+          git diff --cached --quiet && exit 0
+          git commit -m 'analysis: Hofu 6R nine riders G3 day2 second prelim and Hofu track histories'
+          git pull --rebase origin analysis/hofu-20261101-r6-rider-history
+          git push origin HEAD:analysis/hofu-20261101-r6-rider-history
