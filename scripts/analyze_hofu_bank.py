@@ -218,8 +218,6 @@ def main():
         r["winning_outcomes"]=[
             {k:v for k,v in c.items() if k not in ("winner_line_size","solo_riders_in_first_three","leaders_in_first_three")}
             for c in r["paid"]]
-        r.pop("entries")
-        r.pop("paid")
     # Assemble distinct-day results and 1R special study
     by_day={}
     for d in (1,2,3,4):
