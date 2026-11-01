@@ -1,0 +1,96 @@
+name: G3 Day 2 R7-12 historical analysis
+on:
+  push:
+    branches: [analysis/g3-day2-r7-12-20261101]
+    paths:
+      - ".github/workflows/analyze-day2-r7-12.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Analyze G3 meeting day 2 R7-12 using existing validated method
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          p=Path("scripts/analyze_day2_r1_6.py").resolve()
+          src=p.read_text(encoding="utf-8")
+          assert src.count("BETWEEN 1 AND 6") >= 2
+          src=(src.replace("BETWEEN 1 AND 6", "BETWEEN 7 AND 12")
+                  .replace('ROOT / "reports" / "day2_r1_6"', 'ROOT / "reports" / "day2_r7_12"')
+                  .replace("races 1-6", "races 7-12")
+                  .replace("1〜6R", "7〜12R")
+                  .replace("1-6", "7-12"))
+          sys.argv=["analyze_day2_r7_12.py"]
+          exec(compile(src,str(p),"exec"),{"__name__":"__main__","__file__":str(p)})
+          PY
+      - name: Produce comparable 9-car and secondary-round breakdowns
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv,json,runpy
+          from pathlib import Path
+          from collections import Counter
+          p=Path("reports/day2_r7_12")
+          rows=list(csv.DictReader((p/"all_2022_2026h1_race_payout_rows.csv").open(encoding="utf-8-sig",newline="")))
+          base=runpy.run_path("scripts/analyze_day2_r1_6.py",run_name="g3_import_only")
+          summary=base["summary"]
+          def summ(rs):
+              a=[int(r["payout_yen"]) for r in rs if r.get("payout_yen") and int(r["payout_yen"])>0]
+              d=summary(a)
+              d["race_count"]=len(set(r["race_id"] for r in rs))
+              return d
+          def by(rs,key):
+              return {str(x):summ([r for r in rs if str(r[key])==str(x)]) for x in sorted(set(r[key] for r in rs))}
+          def details(rs):
+              result={"overall":summ(rs),"by_race":by(rs,"race_no"),"by_year":by(rs,"year"),"by_race_type":by(rs,"race_type")}
+              result["by_race_line"]={}
+              result["by_race_order"]={}
+              result["by_race_full_line"]={}
+              result["by_race_year"]={}
+              result["by_race_bands"]={}
+              result["top_by_race"]={}
+              bands=[(0,1000,"lt1000"),(1000,3000,"1000_2999"),(3000,5000,"3000_4999"),(5000,10000,"5000_9999"),(10000,20000,"10000_19999"),(20000,50000,"20000_49999"),(50000,100000,"50000_99999"),(100000,200000,"100000_199999"),(200000,500000,"200000_499999"),(500000,float("inf"),"ge500000")]
+              for n in range(7,13):
+                  sr=[r for r in rs if int(r["race_no"])==n]
+                  key=str(n)
+                  result["by_race_line"][key]=by(sr,"line_class")
+                  result["by_race_order"][key]=by(sr,"order_class")
+                  result["by_race_full_line"][key]=by(sr,"full_line_class")
+                  result["by_race_year"][key]=by(sr,"year")
+                  result["by_race_bands"][key]=[{"band":label,"count":sum(low<=int(r["payout_yen"])<high for r in sr if r["payout_yen"]),"pct":(100*sum(low<=int(r["payout_yen"])<high for r in sr if r["payout_yen"])/len(sr)) if sr else 0} for low,high,label in bands]
+                  result["top_by_race"][key]=[{k:r[k] for k in ("race_date","track","race_no","combination","payout_yen","line_class","order_class","full_line_class","entry_count","race_type")} for r in sorted(sr,key=lambda r:-int(r["payout_yen"] or 0))[:5]]
+              result["quality"]={"rows":len(rs),"distinct_races":len(set(r["race_id"] for r in rs)),"unclassified":sum(r["line_class"]=="判定不能" for r in rs),"bad_race_id_date":sum(r["race_id_date_verified"]!="True" for r in rs),"entry_count_distribution":dict(Counter(r["entry_count"] for r in rs))}
+              return result
+          filtered={
+            "all_s_class":rows,
+            "nine_car_s_class":[r for r in rows if r["entry_count"]=="9"],
+            "nine_car_second_preliminary":[r for r in rows if r["entry_count"]=="9" and "二予" in r["race_type"]],
+            "nine_car_second_preliminary_2025plus":[r for r in rows if r["entry_count"]=="9" and "二予" in r["race_type"] and int(r["year"])>=2025],
+          }
+          report={"scope":"G3 2022-2025 full years + 2026 H1; meeting day 2; R7-12; men's SS/S1/S2 class; paid trifecta rows; no result leakage into predictions","filters":{k:details(v) for k,v in filtered.items()}}
+          (p/"detailed_filters.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          for name,rs in filtered.items():
+              print(name,len(set(r["race_id"] for r in rs)),len(rs),summ(rs).get("median"))
+          PY
+      - name: Commit results only to isolated analysis branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/day2_r7_12/
+          git diff --cached --quiet && exit 0
+          git commit -m 'analysis: G3 day 2 R7-12 measured payouts and line structures'
+          git pull --rebase origin analysis/g3-day2-r7-12-20261101
+          git push origin HEAD:analysis/g3-day2-r7-12-20261101
