@@ -1,0 +1,62 @@
+name: Hofu 2026-11-01 4R - 2025+ G3 Day 2 rider history
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/hofu-r4-day2-history.yml"
+      - "scripts/hofu_20261101_r4_day2.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hofu-r4-day2-20261101
+  cancel-in-progress: false
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Calculate 2025-2026H1 G3 day-two results for all 9 riders
+        run: python scripts/hofu_20261101_r4_day2.py
+      - name: Check report metadata and provide summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,os
+          p='reports/hofu_20261101_r4/riders_day2_2025_2026h1.json'
+          with open(p,encoding='utf-8') as f: j=json.load(f)
+          assert len(j['target_runners'])==9
+          assert '2026-06-30' in j['historical_period']
+          assert j['quality']['unmatched_identity']==[]
+          assert j['quality']['invalid_meeting_day_rows']==[]
+          lines=['# G3 開催2日目（2025年〜2026年上半期）／防府4R選手']
+          for r in j['target_runners']:
+              s=r['day2_all']
+              lines.append(f"- {r['car']} {r['name']}: {s['starts']}走 / 1着{s['first']}・2着{s['second']}・3着{s['third']} / 3連対率{s['top3_rate']}%")
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+              f.write('\n'.join(lines)+'\n')
+          print('\n'.join(lines))
+          PY
+      - name: Commit final report and detailed historical rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/hofu_20261101_r4
+          git diff --cached --quiet && exit 0
+          git commit -m 'analysis: Hofu 4R nine riders G3 second-day results since 2025'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify durable main-branch report
+        run: |
+          git fetch origin main
+          git cat-file -e origin/main:reports/hofu_20261101_r4/riders_day2_2025_2026h1_report.md
+          git cat-file -e origin/main:reports/hofu_20261101_r4/riders_day2_2025_2026h1.json
+          git cat-file -e origin/main:reports/hofu_20261101_r4/historical_day2_starts.csv
