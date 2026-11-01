@@ -163,8 +163,27 @@ def extract_year(y):
                  AND p.status = 'paid'
                 WHERE substr(r.race_id, 11, 2) = '02'
                   AND CAST(r.race_no AS INTEGER) BETWEEN 1 AND 6
+                  AND EXISTS (SELECT 1 FROM entries e WHERE e.race_id=r.race_id)
+                  AND NOT EXISTS (
+                    SELECT 1 FROM entries e
+                    WHERE e.race_id=r.race_id
+                      AND (e."class" IS NULL OR e."class" NOT IN ('S1','S2'))
+                  )
                 ORDER BY r.race_date, r.track, CAST(r.race_no AS INTEGER), p.combination
             """).fetchall()
+            exclusions = [dict(x) for x in db.execute("""
+                SELECT r.race_id, r.race_date, r.track, r.race_no, r.race_type
+                FROM races r
+                WHERE substr(r.race_id,11,2)='02'
+                  AND CAST(r.race_no AS INTEGER) BETWEEN 1 AND 6
+                  AND (
+                    NOT EXISTS (SELECT 1 FROM entries e WHERE e.race_id=r.race_id)
+                    OR EXISTS (SELECT 1 FROM entries e
+                               WHERE e.race_id=r.race_id
+                               AND (e."class" IS NULL OR e."class" NOT IN ('S1','S2')))
+                  )
+                ORDER BY r.race_date, r.track, CAST(r.race_no AS INTEGER)
+            """)]
             results = {}
             for r in db.execute("""
                 SELECT e.race_id, e.car_no, e.line_id, e.line_position
@@ -211,7 +230,7 @@ def extract_year(y):
                     "entry_line_position_consistent": line_consistent,
                     **line,
                 })
-            return output
+            return output, exclusions
         finally:
             db.close()
     finally:
@@ -263,13 +282,15 @@ def md_table(headers, lines):
     return "\n".join(result)
 
 
-def make_report(rows):
+def make_report(rows, exclusions):
     observed = [r for r in rows if r["payout_yen"] and r["payout_yen"] > 0]
     race_ids = {r["race_id"] for r in rows}
     paid_races = {r["race_id"] for r in observed}
     missing = [r for r in rows if r["race_id"] not in paid_races]
     mean = summary(numeric(rows))
     grade_quality = {
+        "excluded_non_s_class_races": len(exclusions),
+        "excluded_by_race_type": dict(sorted(Counter(r["race_type"] for r in exclusions).items())),
         "selected_races": len(race_ids), "winning_payout_rows": len(observed),
         "races_with_winning_trifecta": len(paid_races),
         "races_without_winning_trifecta": len(race_ids - paid_races),
@@ -280,7 +301,8 @@ def make_report(rows):
     }
     exact = sorted(Counter(numeric(rows)).items(), key=lambda t: (-t[1], t[0]))[:15]
     dataset = {
-        "scope": "G3 2022-01-01 through 2026-06-30, 2nd meeting day, races 1-6 inclusive",
+        "scope": "G3 men's S1/S2 class only, 2022 through June 2026, meeting day 2 races 1-6; exclude all Girls/L/A-class",
+        "excluded_races": exclusions,
         "payout_basis": "Winning trifecta payout in JPY per 100-yen bet; each paid combination is one sample.",
         "line_basis": "KDreams published predicted_line_formation; line for 1st and 2nd = 筋, different = 筋違い.",
         "quality": grade_quality,
@@ -304,7 +326,8 @@ def make_report(rows):
         "",
         "## 対象・算出方法",
         "",
-        "- 対象：2022〜2025年のG3全四半期、および2026年1〜6月。開催2日目（race_idの開催日次=02）の1〜6R。",
+        "- 対象：2022〜2025年のG3全四半期、および2026年1〜6月。開催2日目（race_idの開催日次=02）の1〜6R。**出走選手全員がS1/S2の男子S級レースのみ**。",
+        "- G3開催に混在するガールズ・A級競走は除外し、開催格だけで対象を決めない。『選抜』等の表記でも選手級班でS級なら含める。",
         "- 単位：**3連単の的中組番の払戻金・100円あたり**。同着などによる複数の的中組番は各1件として集計し、レース数とは別に表示。",
         "- 筋：1・2着が同じ公表予想ライン。筋違い：1・2着が別ライン。順筋／逆筋は公表ライン内の先頭→後位／後位→先頭の順番。",
         "- AAA/AAB/ABA/ABB/ABC：1〜3着のライン同一性を表す（AABは1・2着同ラインで3着別ラインなど）。",
@@ -426,12 +449,13 @@ def main():
     ap.add_argument("--year", type=int, choices=YEARS, help="Optional single-year run")
     args = ap.parse_args()
     years = (args.year,) if args.year else YEARS
-    records = []
+    records, exclusions = [], []
     for y in years:
-        chunk = extract_year(y)
-        print(f"EXTRACTED {y}: rows={len(chunk)} unique_races={len(set(r['race_id'] for r in chunk))}", flush=True)
+        chunk, excluded = extract_year(y)
+        print(f"EXTRACTED {y}: rows={len(chunk)} unique_races={len(set(r['race_id'] for r in chunk))}, excluded_non_S={len(excluded)}", flush=True)
         records.extend(chunk)
-    dataset, report = make_report(records)
+        exclusions.extend(excluded)
+    dataset, report = make_report(records, exclusions)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     name = str(args.year) if args.year else "all_2022_2026h1"
     (OUTPUT / f"{name}_statistics.json").write_text(
