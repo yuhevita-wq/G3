@@ -167,7 +167,7 @@ def extract_year(y):
                   AND NOT EXISTS (
                     SELECT 1 FROM entries e
                     WHERE e.race_id=r.race_id
-                      AND (e."class" IS NULL OR e."class" NOT IN ('S1','S2'))
+                      AND (e."class" IS NULL OR e."class" NOT IN ('SS','S1','S2'))
                   )
                 ORDER BY r.race_date, r.track, CAST(r.race_no AS INTEGER), p.combination
             """).fetchall()
@@ -180,7 +180,7 @@ def extract_year(y):
                     NOT EXISTS (SELECT 1 FROM entries e WHERE e.race_id=r.race_id)
                     OR EXISTS (SELECT 1 FROM entries e
                                WHERE e.race_id=r.race_id
-                               AND (e."class" IS NULL OR e."class" NOT IN ('S1','S2')))
+                               AND (e."class" IS NULL OR e."class" NOT IN ('SS','S1','S2')))
                   )
                 ORDER BY r.race_date, r.track, CAST(r.race_no AS INTEGER)
             """)]
@@ -301,7 +301,7 @@ def make_report(rows, exclusions):
     }
     exact = sorted(Counter(numeric(rows)).items(), key=lambda t: (-t[1], t[0]))[:15]
     dataset = {
-        "scope": "G3 men's S1/S2 class only, 2022 through June 2026, meeting day 2 races 1-6; exclude all Girls/L/A-class",
+        "scope": "G3 men's SS/S1/S2 class only, 2022 through June 2026, meeting day 2 races 1-6; exclude all Girls/L/A-class",
         "excluded_races": exclusions,
         "payout_basis": "Winning trifecta payout in JPY per 100-yen bet; each paid combination is one sample.",
         "line_basis": "KDreams published predicted_line_formation; line for 1st and 2nd = 筋, different = 筋違い.",
@@ -326,7 +326,7 @@ def make_report(rows, exclusions):
         "",
         "## 対象・算出方法",
         "",
-        "- 対象：2022〜2025年のG3全四半期、および2026年1〜6月。開催2日目（race_idの開催日次=02）の1〜6R。**出走選手全員がS1/S2の男子S級レースのみ**。",
+        "- 対象：2022〜2025年のG3全四半期、および2026年1〜6月。開催2日目（race_idの開催日次=02）の1〜6R。**出走選手全員がSS/S1/S2の男子S級レースのみ**。",
         "- G3開催に混在するガールズ・A級競走は除外し、開催格だけで対象を決めない。『選抜』等の表記でも選手級班でS級なら含める。",
         "- 単位：**3連単の的中組番の払戻金・100円あたり**。同着などによる複数の的中組番は各1件として集計し、レース数とは別に表示。",
         "- 筋：1・2着が同じ公表予想ライン。筋違い：1・2着が別ライン。順筋／逆筋は公表ライン内の先頭→後位／後位→先頭の順番。",
