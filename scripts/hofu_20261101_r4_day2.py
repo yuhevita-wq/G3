@@ -210,7 +210,7 @@ def main():
         for x in rides:
             all_records.append({"today_car":runner["car"],"today_player":runner["name"],**history_view(x)})
     result = {
-        "meeting":"2026-11-01 Hofu G3 day 2 3R S-class selection",
+        "meeting":"2026-11-01 Hofu G3 day 2 4R S-class selection",
         "today_race":"2026-11-01",
         "historical_period":"2025-01-01 to 2026-06-30 inclusive (2026 H2 not in original data)",
         "restriction":"G3 meeting day 2 only; historical 2025+ S-class only. No outcome from 2026-11-01.",
