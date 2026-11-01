@@ -1,0 +1,78 @@
+name: Build verified G3 datasets
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-g3.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: build-g3-historical
+  cancel-in-progress: false
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download, SHA256 verify, ingest and audit 18 source ZIPs
+        run: |
+          set -euo pipefail
+          python scripts/prepare_g3.py all --year all
+      - name: Smoke-test queryable dataset
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/query_g3.py --year 2023 --sql 'SELECT COUNT(*) FROM races'
+          python scripts/query_g3.py --year 2023 --sql 'SELECT COUNT(*) FROM trifecta_final_odds'
+          python scripts/query_g3.py --year 2023 --sql 'SELECT race_date,track,predicted_line_formation FROM races LIMIT 3'
+          python scripts/prepare_g3.py verify --year all
+      - name: Record verified year totals
+        shell: bash
+        run: |
+          python - <<'PY'
+          import glob,json,os
+          reports=[json.load(open(p)) for p in sorted(glob.glob("reports/ingestion/20*.json"))]
+          assert len(reports)==5, f"Expected 5 annual reports: {len(reports)}"
+          s=["# G3 verified ingestion"]
+          for r in reports:
+              q=r["quality"]
+              s.append(f"- {r['year']}: races={r['row_counts']['races']}, entries={r['row_counts']['entries']}, "
+                       f"trifecta_odds={r['row_counts']['trifecta_final_odds']}, "
+                       f"races_missing_trifecta_odds={q['races_missing_trifecta_odds']}")
+          text="\n".join(s)+"\n"
+          print(text)
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f: f.write(text)
+          PY
+      - name: Commit immutable archives, query-ready SQLite and QC summaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/archives data/ready reports/ingestion
+          if git diff --cached --quiet; then
+            echo 'No data changes.'
+            exit 0
+          fi
+          git commit -m "data: import and index verified G3 archives 2022-2026H1"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify durable storage on remote main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          for year in 2022 2023 2024 2025 2026; do
+            git cat-file -e "origin/main:data/ready/g3_${year}.sqlite.gz"
+            git cat-file -e "origin/main:reports/ingestion/${year}.json"
+          done
+          test "$(git ls-tree -r --name-only origin/main data/archives | grep -c '\.zip$')" -eq 18
+          echo 'PASS: 18 original archives and 5 indexed SQLite gzip files are stored on origin/main.'
