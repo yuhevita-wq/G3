@@ -71,6 +71,10 @@ jobs:
                           x=dict(raw); name=norm(x["player_name"])
                           if name not in aliases: continue
                           car,expected,pref,term=aliases[name]
+                          # Archive occasionally annotates a scheduled rider as 欠車 in term.
+                          # These are non-starts and must not enter the starts denominator.
+                          if any(mark in str(x["term"] or "") for mark in ("欠車","欠場","欠","取消")) or any(mark in str(x["finish_text"] or "") for mark in ("欠車","欠場","取消")):
+                              continue
                           if norm(x["prefecture"])!=norm(pref) or str(x["term"])!=str(term):
                               conflicts.append(dict(name=expected,found_name=x["player_name"],found_pref=x["prefecture"],found_term=x["term"],race_id=x["race_id"]))
                               continue
