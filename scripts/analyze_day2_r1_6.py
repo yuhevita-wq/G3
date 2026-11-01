@@ -230,6 +230,16 @@ def group_stats(rows, key):
     return {k: summary(v) for k, v in sorted(groups.items())}
 
 
+def cross_stats(rows, a, b):
+    """Nested descriptive statistics retaining every paid combination."""
+    groups = defaultdict(lambda: defaultdict(list))
+    for r in rows:
+        if r["payout_yen"] and r["payout_yen"] > 0:
+            groups[str(r[a])][str(r[b])].append(r["payout_yen"])
+    return {k: {label: summary(values) for label, values in sorted(group.items())}
+            for k, group in sorted(groups.items())}
+
+
 def bar_distribution(rows):
     values = numeric(rows)
     return [{"band": label, "count": sum(a <= v < b for v in values),
@@ -281,6 +291,9 @@ def make_report(rows):
         "by_line": group_stats(rows, "line_class"),
         "by_full_line": group_stats(rows, "full_line_class"),
         "by_order": group_stats(rows, "order_class"),
+        "by_race_line": cross_stats(rows, "race_no", "line_class"),
+        "by_race_full_line": cross_stats(rows, "race_no", "full_line_class"),
+        "by_year_line": cross_stats(rows, "year", "line_class"),
         "bands": bar_distribution(rows),
         "most_frequent_exact_payouts": [{"payout_yen": v, "count": n} for v,n in exact],
         "top_payouts": sorted(observed, key=lambda r: (-r["payout_yen"], r["race_date"]))[:20],
@@ -349,6 +362,27 @@ def make_report(rows):
                  [[k, f"{s['n']:,}", percentage(s["n"],mean["n"]), money(s["mean"]),
                    money(s["median"]), money(s["p90"]), percentage(s["ge_50000"],s["n"])]
                   for k,s in dataset["by_line"].items()]),
+        "",
+        "## 1〜6R別の筋・筋違い",
+        "",
+        md_table(["R", "筋件数", "筋%", "筋中央値", "筋違い件数", "筋違い%", "筋違い中央値"],
+                 [[race, f"{v.get('筋', {}).get('n', 0):,}",
+                   percentage(v.get("筋", {}).get("n", 0), sum(t["n"] for t in v.values())),
+                   money(v.get("筋", {}).get("median")),
+                   f"{v.get('筋違い', {}).get('n', 0):,}",
+                   percentage(v.get("筋違い", {}).get("n", 0), sum(t["n"] for t in v.values())),
+                   money(v.get("筋違い", {}).get("median"))]
+                  for race,v in dataset["by_race_line"].items()]),
+        "",
+        "## 年別の筋・筋違い",
+        "",
+        md_table(["年", "筋", "筋違い", "筋%", "筋中央値", "筋違い中央値"],
+                 [[year, f"{v.get('筋', {}).get('n', 0):,}",
+                   f"{v.get('筋違い', {}).get('n', 0):,}",
+                   percentage(v.get("筋", {}).get("n", 0), sum(t["n"] for t in v.values())),
+                   money(v.get("筋", {}).get("median")),
+                   money(v.get("筋違い", {}).get("median"))]
+                  for year,v in dataset["by_year_line"].items()]),
         "",
         "## 筋の順序（ライン内の前→後ろ／後ろ→前）",
         "",
