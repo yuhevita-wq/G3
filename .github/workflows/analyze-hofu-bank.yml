@@ -1,0 +1,59 @@
+name: Analyze Hofu G3 bank collapse patterns since 2025
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/analyze-hofu-bank.yml"
+      - "scripts/analyze_hofu_bank.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hofubank-g3-2025plus
+  cancel-in-progress: false
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Analyze 2025+ G3 9-car S-class outcome/line patterns
+        run: python scripts/analyze_hofu_bank.py
+      - name: Audit cohorts and report quality
+        run: |
+          python - <<'PY'
+          import json
+          with open("reports/hofu_bank_2025plus/hofu_bank_results_2025plus.json",encoding="utf-8") as f:
+              j=json.load(f)
+          q=j["quality"]; h=j["cohorts"]["Hofu_2025plus"]
+          assert h["races"]>0, f"No Hofu S-class races detected, quality={q}"
+          assert h["classified_combinations"]==h["winning_combinations"], f"Hofu unclassified: {h}"
+          print("Hofu G3 races:", h["races"])
+          print("Hofu first-second different line:",h["first_second_split_pct"])
+          print("2025 other 333m bank G3 races:",j["cohorts"]["Other33_2025"]["races"])
+          print("2025 all other G3 races:",j["cohorts"]["Other_nonHofu_2025"]["races"])
+          print("Hofu G3 day2 R1-6:",j["cohorts"]["Hofu_Day2_R1_6"]["races"])
+          PY
+      - name: Commit research output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/hofu_bank_2025plus
+          git diff --cached --quiet && exit 0
+          git commit -m 'analysis: Hofu G3 line breakups, winning roles and payout anomalies'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify published results
+        shell: bash
+        run: |
+          git fetch origin main
+          git cat-file -e origin/main:reports/hofu_bank_2025plus/hofu_bank_results_2025plus.json
+          git cat-file -e origin/main:reports/hofu_bank_2025plus/hofu_bank_results_2025plus_report.md
+          git cat-file -e origin/main:reports/hofu_bank_2025plus/hofu_2025_all_g3_outcomes.csv
