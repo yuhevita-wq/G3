@@ -1,0 +1,40 @@
+name: Inspect G3 source archives
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-g3.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and inspect source ZIP examples
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/g3
+          for item in "2023/g3-all-2023-q1-non-girls.zip" "2024/g3-2024-q1.zip" "2026_h1/g3-2026-q1.zip"; do
+            name="${item##*/}"
+            path="/tmp/g3/$name"
+            echo "::group::${item}"
+            curl -fLSs --retry 4 --retry-delay 2 "https://raw.githubusercontent.com/yuhevita-wq/keirin-market-analysis-/main/data/grade_races/g3/$item" -o "$path"
+            python - "$path" <<'PY'
+          import sys, zipfile, json, os
+          p=sys.argv[1]
+          print("ARCHIVE",os.path.basename(p),"SIZE",os.stat(p).st_size)
+          with zipfile.ZipFile(p) as z:
+              members=[i for i in z.infolist() if not i.is_dir()]
+              print("MEMBERS",len(members))
+              for i in members[:45]:
+                  print("ENTRY",i.filename,"size",i.file_size)
+                  if i.file_size < 20000000 and i.filename.lower().endswith((".json",".jsonl",".csv",".txt",".md")):
+                      text=z.read(i.filename)[:1800].decode("utf-8-sig",errors="replace")
+                      print("PREVIEW",repr(text[:950]))
+          PY
+            echo "::endgroup::"
+          done
