@@ -1,0 +1,2577 @@
+{
+  "scope": "2025-01-01 to 2026-06-30, S-class G3 with nine starters and valid predicted formation",
+  "Hofu_observation": "2025 Hofu G3 only, as 2026 H1 source has no Oct-Nov Hofu G3. 2026-11-01 meeting intentionally excluded",
+  "warning": "Published predicted line != observed formation or actual 4th corner position; finish-line structure only. Cannot infer lead changes, blocking or wind causality.",
+  "denominator": "Line pattern/payout statistics use winning paid combinations; multiple winning combos in dead heat may each count. Race count separate.",
+  "same_year_benchmark": "2025 non-Hofu G3; 2025 other 333/335m G3",
+  "quality": {
+    "all_races": 3207,
+    "included_races": 2689,
+    "excluded_non9_entry_races": 510,
+    "excluded_nonsclass_races": 8
+  },
+  "cohorts": {
+    "Hofu_2025plus": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    },
+    "Other33_2025": {
+      "races": 367,
+      "winning_combinations": 371,
+      "classified_combinations": 371,
+      "races_missing_paid": 0,
+      "mean_yen": 26275.7,
+      "median_yen": 7140,
+      "ge_10000": 157,
+      "ge_50000": 40,
+      "ge_100000": 24,
+      "ge_50000_pct": 10.8,
+      "ge_100000_pct": 6.5,
+      "max_yen": 693790,
+      "line_patterns": {
+        "AAA": 74,
+        "AAB": 131,
+        "ABA": 56,
+        "ABB": 58,
+        "ABC": 52
+      },
+      "line_pattern_pct": {
+        "AAA": 19.9,
+        "AAB": 35.3,
+        "ABA": 15.1,
+        "ABB": 15.6,
+        "ABC": 14.0
+      },
+      "first_second_split_pct": 44.7,
+      "abc_pct": 14.0,
+      "winner_only_podium_pct": 28.0,
+      "reversed_12_pct": 22.4,
+      "winner_roles": {
+        "3番手以降": 6,
+        "ライン先頭": 175,
+        "単騎": 6,
+        "番手": 184
+      },
+      "winner_role_pct": {
+        "ライン先頭": 47.2,
+        "番手": 49.6,
+        "3番手以降": 1.6,
+        "単騎": 1.6
+      },
+      "winning_methods": {
+        "差": 168,
+        "捲": 139,
+        "逃": 64
+      },
+      "winning_methods_pct": {
+        "逃": 17.3,
+        "捲": 37.5,
+        "差": 45.3,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "Other33_2025plus": {
+      "races": 449,
+      "winning_combinations": 453,
+      "classified_combinations": 453,
+      "races_missing_paid": 0,
+      "mean_yen": 26710.4,
+      "median_yen": 7270,
+      "ge_10000": 195,
+      "ge_50000": 51,
+      "ge_100000": 29,
+      "ge_50000_pct": 11.3,
+      "ge_100000_pct": 6.4,
+      "max_yen": 693790,
+      "line_patterns": {
+        "AAA": 88,
+        "AAB": 163,
+        "ABA": 67,
+        "ABB": 66,
+        "ABC": 69
+      },
+      "line_pattern_pct": {
+        "AAA": 19.4,
+        "AAB": 36.0,
+        "ABA": 14.8,
+        "ABB": 14.6,
+        "ABC": 15.2
+      },
+      "first_second_split_pct": 44.6,
+      "abc_pct": 15.2,
+      "winner_only_podium_pct": 27.2,
+      "reversed_12_pct": 22.3,
+      "winner_roles": {
+        "3番手以降": 9,
+        "ライン先頭": 220,
+        "単騎": 12,
+        "番手": 212
+      },
+      "winner_role_pct": {
+        "ライン先頭": 48.6,
+        "番手": 46.8,
+        "3番手以降": 2.0,
+        "単騎": 2.6
+      },
+      "winning_methods": {
+        "差": 203,
+        "捲": 170,
+        "逃": 80
+      },
+      "winning_methods_pct": {
+        "逃": 17.7,
+        "捲": 37.5,
+        "差": 44.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "Other_nonHofu_2025": {
+      "races": 1743,
+      "winning_combinations": 1764,
+      "classified_combinations": 1764,
+      "races_missing_paid": 0,
+      "mean_yen": 25692.9,
+      "median_yen": 7325.0,
+      "ge_10000": 759,
+      "ge_50000": 224,
+      "ge_100000": 112,
+      "ge_50000_pct": 12.7,
+      "ge_100000_pct": 6.3,
+      "max_yen": 718250,
+      "line_patterns": {
+        "AAA": 334,
+        "AAB": 616,
+        "ABA": 261,
+        "ABB": 268,
+        "ABC": 285
+      },
+      "line_pattern_pct": {
+        "AAA": 18.9,
+        "AAB": 34.9,
+        "ABA": 14.8,
+        "ABB": 15.2,
+        "ABC": 16.2
+      },
+      "first_second_split_pct": 46.1,
+      "abc_pct": 16.2,
+      "winner_only_podium_pct": 28.6,
+      "reversed_12_pct": 24.5,
+      "winner_roles": {
+        "3番手以降": 40,
+        "ライン先頭": 764,
+        "単騎": 48,
+        "番手": 912
+      },
+      "winner_role_pct": {
+        "ライン先頭": 43.3,
+        "番手": 51.7,
+        "3番手以降": 2.3,
+        "単騎": 2.7
+      },
+      "winning_methods": {
+        "ク": 1,
+        "差": 932,
+        "捲": 601,
+        "逃": 230
+      },
+      "winning_methods_pct": {
+        "逃": 13.0,
+        "捲": 34.1,
+        "差": 52.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "Other_nonHofu_2025plus": {
+      "races": 2689,
+      "winning_combinations": 2715,
+      "classified_combinations": 2715,
+      "races_missing_paid": 0,
+      "mean_yen": 26317.1,
+      "median_yen": 7400,
+      "ge_10000": 1169,
+      "ge_50000": 349,
+      "ge_100000": 163,
+      "ge_50000_pct": 12.9,
+      "ge_100000_pct": 6.0,
+      "max_yen": 1240140,
+      "line_patterns": {
+        "AAA": 508,
+        "AAB": 954,
+        "ABA": 387,
+        "ABB": 396,
+        "ABC": 470
+      },
+      "line_pattern_pct": {
+        "AAA": 18.7,
+        "AAB": 35.1,
+        "ABA": 14.3,
+        "ABB": 14.6,
+        "ABC": 17.3
+      },
+      "first_second_split_pct": 46.2,
+      "abc_pct": 17.3,
+      "winner_only_podium_pct": 28.9,
+      "reversed_12_pct": 24.4,
+      "winner_roles": {
+        "3番手以降": 70,
+        "ライン先頭": 1192,
+        "単騎": 82,
+        "番手": 1371
+      },
+      "winner_role_pct": {
+        "ライン先頭": 43.9,
+        "番手": 50.5,
+        "3番手以降": 2.6,
+        "単騎": 3.0
+      },
+      "winning_methods": {
+        "ク": 2,
+        "差": 1449,
+        "捲": 912,
+        "逃": 352
+      },
+      "winning_methods_pct": {
+        "逃": 13.0,
+        "捲": 33.6,
+        "差": 53.4,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "Hofu_Day2_R1_6": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    },
+    "Other33_2025_Day2_R1_6": {
+      "races": 34,
+      "winning_combinations": 35,
+      "classified_combinations": 35,
+      "races_missing_paid": 0,
+      "mean_yen": 30918.0,
+      "median_yen": 4460,
+      "ge_10000": 10,
+      "ge_50000": 3,
+      "ge_100000": 1,
+      "ge_50000_pct": 8.6,
+      "ge_100000_pct": 2.9,
+      "max_yen": 693790,
+      "line_patterns": {
+        "AAA": 10,
+        "AAB": 13,
+        "ABA": 5,
+        "ABB": 5,
+        "ABC": 2
+      },
+      "line_pattern_pct": {
+        "AAA": 28.6,
+        "AAB": 37.1,
+        "ABA": 14.3,
+        "ABB": 14.3,
+        "ABC": 5.7
+      },
+      "first_second_split_pct": 34.3,
+      "abc_pct": 5.7,
+      "winner_only_podium_pct": 20.0,
+      "reversed_12_pct": 20.0,
+      "winner_roles": {
+        "ライン先頭": 19,
+        "番手": 16
+      },
+      "winner_role_pct": {
+        "ライン先頭": 54.3,
+        "番手": 45.7,
+        "3番手以降": 0.0,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 16,
+        "捲": 11,
+        "逃": 8
+      },
+      "winning_methods_pct": {
+        "逃": 22.9,
+        "捲": 31.4,
+        "差": 45.7,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "Other_2025_Day2_R1_6": {
+      "races": 191,
+      "winning_combinations": 194,
+      "classified_combinations": 194,
+      "races_missing_paid": 0,
+      "mean_yen": 23552.7,
+      "median_yen": 6895.0,
+      "ge_10000": 80,
+      "ge_50000": 20,
+      "ge_100000": 12,
+      "ge_50000_pct": 10.3,
+      "ge_100000_pct": 6.2,
+      "max_yen": 693790,
+      "line_patterns": {
+        "AAA": 42,
+        "AAB": 67,
+        "ABA": 30,
+        "ABB": 27,
+        "ABC": 28
+      },
+      "line_pattern_pct": {
+        "AAA": 21.6,
+        "AAB": 34.5,
+        "ABA": 15.5,
+        "ABB": 13.9,
+        "ABC": 14.4
+      },
+      "first_second_split_pct": 43.8,
+      "abc_pct": 14.4,
+      "winner_only_podium_pct": 27.3,
+      "reversed_12_pct": 24.2,
+      "winner_roles": {
+        "ライン先頭": 88,
+        "単騎": 2,
+        "番手": 104
+      },
+      "winner_role_pct": {
+        "ライン先頭": 45.4,
+        "番手": 53.6,
+        "3番手以降": 0.0,
+        "単騎": 1.0
+      },
+      "winning_methods": {
+        "差": 102,
+        "捲": 66,
+        "逃": 26
+      },
+      "winning_methods_pct": {
+        "逃": 13.4,
+        "捲": 34.0,
+        "差": 52.6,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    }
+  },
+  "hofu_by_meeting_day": {
+    "1": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    },
+    "2": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    },
+    "3": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    },
+    "4": {
+      "races": 0,
+      "winning_combinations": 0,
+      "classified_combinations": 0,
+      "races_missing_paid": 0,
+      "mean_yen": null,
+      "median_yen": null,
+      "ge_10000": 0,
+      "ge_50000": 0,
+      "ge_100000": 0,
+      "ge_50000_pct": null,
+      "ge_100000_pct": null,
+      "max_yen": null,
+      "line_patterns": {},
+      "line_pattern_pct": {
+        "AAA": null,
+        "AAB": null,
+        "ABA": null,
+        "ABB": null,
+        "ABC": null
+      },
+      "first_second_split_pct": null,
+      "abc_pct": null,
+      "winner_only_podium_pct": null,
+      "reversed_12_pct": null,
+      "winner_roles": {},
+      "winner_role_pct": {
+        "ライン先頭": null,
+        "番手": null,
+        "3番手以降": null,
+        "単騎": null
+      },
+      "winning_methods": {},
+      "winning_methods_pct": {
+        "逃": null,
+        "捲": null,
+        "差": null,
+        "マ": null,
+        "逃げ": null,
+        "捲り": null,
+        "差し": null
+      }
+    }
+  },
+  "hofu_day2_r1_6": [],
+  "hofu_top_payouts": [],
+  "by_track_2025": {
+    "久留米競輪": {
+      "races": 40,
+      "winning_combinations": 40,
+      "classified_combinations": 40,
+      "races_missing_paid": 0,
+      "mean_yen": 23417.5,
+      "median_yen": 3235.0,
+      "ge_10000": 12,
+      "ge_50000": 5,
+      "ge_100000": 3,
+      "ge_50000_pct": 12.5,
+      "ge_100000_pct": 7.5,
+      "max_yen": 226210,
+      "line_patterns": {
+        "AAA": 15,
+        "AAB": 10,
+        "ABA": 7,
+        "ABB": 3,
+        "ABC": 5
+      },
+      "line_pattern_pct": {
+        "AAA": 37.5,
+        "AAB": 25.0,
+        "ABA": 17.5,
+        "ABB": 7.5,
+        "ABC": 12.5
+      },
+      "first_second_split_pct": 37.5,
+      "abc_pct": 12.5,
+      "winner_only_podium_pct": 20.0,
+      "reversed_12_pct": 32.5,
+      "winner_roles": {
+        "ライン先頭": 21,
+        "番手": 19
+      },
+      "winner_role_pct": {
+        "ライン先頭": 52.5,
+        "番手": 47.5,
+        "3番手以降": 0.0,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 21,
+        "捲": 12,
+        "逃": 7
+      },
+      "winning_methods_pct": {
+        "逃": 17.5,
+        "捲": 30.0,
+        "差": 52.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "京王閣競輪": {
+      "races": 82,
+      "winning_combinations": 83,
+      "classified_combinations": 83,
+      "races_missing_paid": 0,
+      "mean_yen": 30232.4,
+      "median_yen": 10090,
+      "ge_10000": 42,
+      "ge_50000": 14,
+      "ge_100000": 6,
+      "ge_50000_pct": 16.9,
+      "ge_100000_pct": 7.2,
+      "max_yen": 346600,
+      "line_patterns": {
+        "AAA": 13,
+        "AAB": 22,
+        "ABA": 16,
+        "ABB": 13,
+        "ABC": 19
+      },
+      "line_pattern_pct": {
+        "AAA": 15.7,
+        "AAB": 26.5,
+        "ABA": 19.3,
+        "ABB": 15.7,
+        "ABC": 22.9
+      },
+      "first_second_split_pct": 57.8,
+      "abc_pct": 22.9,
+      "winner_only_podium_pct": 32.5,
+      "reversed_12_pct": 22.9,
+      "winner_roles": {
+        "3番手以降": 5,
+        "ライン先頭": 38,
+        "単騎": 5,
+        "番手": 35
+      },
+      "winner_role_pct": {
+        "ライン先頭": 45.8,
+        "番手": 42.2,
+        "3番手以降": 6.0,
+        "単騎": 6.0
+      },
+      "winning_methods": {
+        "差": 40,
+        "捲": 31,
+        "逃": 12
+      },
+      "winning_methods_pct": {
+        "逃": 14.5,
+        "捲": 37.3,
+        "差": 48.2,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "伊東競輪": {
+      "races": 42,
+      "winning_combinations": 42,
+      "classified_combinations": 42,
+      "races_missing_paid": 0,
+      "mean_yen": 20121.7,
+      "median_yen": 4350.0,
+      "ge_10000": 14,
+      "ge_50000": 4,
+      "ge_100000": 2,
+      "ge_50000_pct": 9.5,
+      "ge_100000_pct": 4.8,
+      "max_yen": 208900,
+      "line_patterns": {
+        "AAA": 4,
+        "AAB": 20,
+        "ABA": 8,
+        "ABB": 5,
+        "ABC": 5
+      },
+      "line_pattern_pct": {
+        "AAA": 9.5,
+        "AAB": 47.6,
+        "ABA": 19.0,
+        "ABB": 11.9,
+        "ABC": 11.9
+      },
+      "first_second_split_pct": 42.9,
+      "abc_pct": 11.9,
+      "winner_only_podium_pct": 23.8,
+      "reversed_12_pct": 21.4,
+      "winner_roles": {
+        "ライン先頭": 21,
+        "番手": 21
+      },
+      "winner_role_pct": {
+        "ライン先頭": 50.0,
+        "番手": 50.0,
+        "3番手以降": 0.0,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 24,
+        "捲": 12,
+        "逃": 6
+      },
+      "winning_methods_pct": {
+        "逃": 14.3,
+        "捲": 28.6,
+        "差": 57.1,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "佐世保競輪": {
+      "races": 41,
+      "winning_combinations": 42,
+      "classified_combinations": 42,
+      "races_missing_paid": 0,
+      "mean_yen": 27125.7,
+      "median_yen": 7745.0,
+      "ge_10000": 18,
+      "ge_50000": 6,
+      "ge_100000": 3,
+      "ge_50000_pct": 14.3,
+      "ge_100000_pct": 7.1,
+      "max_yen": 218160,
+      "line_patterns": {
+        "AAA": 3,
+        "AAB": 19,
+        "ABA": 7,
+        "ABB": 5,
+        "ABC": 8
+      },
+      "line_pattern_pct": {
+        "AAA": 7.1,
+        "AAB": 45.2,
+        "ABA": 16.7,
+        "ABB": 11.9,
+        "ABC": 19.0
+      },
+      "first_second_split_pct": 47.6,
+      "abc_pct": 19.0,
+      "winner_only_podium_pct": 28.6,
+      "reversed_12_pct": 26.2,
+      "winner_roles": {
+        "ライン先頭": 15,
+        "単騎": 1,
+        "番手": 26
+      },
+      "winner_role_pct": {
+        "ライン先頭": 35.7,
+        "番手": 61.9,
+        "3番手以降": 0.0,
+        "単騎": 2.4
+      },
+      "winning_methods": {
+        "差": 24,
+        "捲": 14,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 9.5,
+        "捲": 33.3,
+        "差": 57.1,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "別府競輪": {
+      "races": 71,
+      "winning_combinations": 72,
+      "classified_combinations": 72,
+      "races_missing_paid": 0,
+      "mean_yen": 15140.7,
+      "median_yen": 9165.0,
+      "ge_10000": 34,
+      "ge_50000": 5,
+      "ge_100000": 2,
+      "ge_50000_pct": 6.9,
+      "ge_100000_pct": 2.8,
+      "max_yen": 114740,
+      "line_patterns": {
+        "AAA": 14,
+        "AAB": 34,
+        "ABA": 8,
+        "ABB": 10,
+        "ABC": 6
+      },
+      "line_pattern_pct": {
+        "AAA": 19.4,
+        "AAB": 47.2,
+        "ABA": 11.1,
+        "ABB": 13.9,
+        "ABC": 8.3
+      },
+      "first_second_split_pct": 33.3,
+      "abc_pct": 8.3,
+      "winner_only_podium_pct": 22.2,
+      "reversed_12_pct": 33.3,
+      "winner_roles": {
+        "3番手以降": 4,
+        "ライン先頭": 26,
+        "番手": 42
+      },
+      "winner_role_pct": {
+        "ライン先頭": 36.1,
+        "番手": 58.3,
+        "3番手以降": 5.6,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 43,
+        "捲": 23,
+        "逃": 6
+      },
+      "winning_methods_pct": {
+        "逃": 8.3,
+        "捲": 31.9,
+        "差": 59.7,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "前橋競輪": {
+      "races": 45,
+      "winning_combinations": 46,
+      "classified_combinations": 46,
+      "races_missing_paid": 0,
+      "mean_yen": 26523.3,
+      "median_yen": 10320.0,
+      "ge_10000": 24,
+      "ge_50000": 7,
+      "ge_100000": 3,
+      "ge_50000_pct": 15.2,
+      "ge_100000_pct": 6.5,
+      "max_yen": 247980,
+      "line_patterns": {
+        "AAA": 8,
+        "AAB": 20,
+        "ABA": 3,
+        "ABB": 8,
+        "ABC": 7
+      },
+      "line_pattern_pct": {
+        "AAA": 17.4,
+        "AAB": 43.5,
+        "ABA": 6.5,
+        "ABB": 17.4,
+        "ABC": 15.2
+      },
+      "first_second_split_pct": 39.1,
+      "abc_pct": 15.2,
+      "winner_only_podium_pct": 30.4,
+      "reversed_12_pct": 32.6,
+      "winner_roles": {
+        "ライン先頭": 19,
+        "単騎": 1,
+        "番手": 26
+      },
+      "winner_role_pct": {
+        "ライン先頭": 41.3,
+        "番手": 56.5,
+        "3番手以降": 0.0,
+        "単騎": 2.2
+      },
+      "winning_methods": {
+        "差": 23,
+        "捲": 20,
+        "逃": 3
+      },
+      "winning_methods_pct": {
+        "逃": 6.5,
+        "捲": 43.5,
+        "差": 50.0,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "取手競輪": {
+      "races": 44,
+      "winning_combinations": 45,
+      "classified_combinations": 45,
+      "races_missing_paid": 0,
+      "mean_yen": 13800.4,
+      "median_yen": 5510,
+      "ge_10000": 13,
+      "ge_50000": 3,
+      "ge_100000": 2,
+      "ge_50000_pct": 6.7,
+      "ge_100000_pct": 4.4,
+      "max_yen": 109770,
+      "line_patterns": {
+        "AAA": 11,
+        "AAB": 16,
+        "ABA": 8,
+        "ABB": 7,
+        "ABC": 3
+      },
+      "line_pattern_pct": {
+        "AAA": 24.4,
+        "AAB": 35.6,
+        "ABA": 17.8,
+        "ABB": 15.6,
+        "ABC": 6.7
+      },
+      "first_second_split_pct": 40.0,
+      "abc_pct": 6.7,
+      "winner_only_podium_pct": 20.0,
+      "reversed_12_pct": 26.7,
+      "winner_roles": {
+        "ライン先頭": 16,
+        "単騎": 1,
+        "番手": 28
+      },
+      "winner_role_pct": {
+        "ライン先頭": 35.6,
+        "番手": 62.2,
+        "3番手以降": 0.0,
+        "単騎": 2.2
+      },
+      "winning_methods": {
+        "差": 28,
+        "捲": 13,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 8.9,
+        "捲": 28.9,
+        "差": 62.2,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "名古屋競輪": {
+      "races": 44,
+      "winning_combinations": 44,
+      "classified_combinations": 44,
+      "races_missing_paid": 0,
+      "mean_yen": 26098.9,
+      "median_yen": 6520.0,
+      "ge_10000": 16,
+      "ge_50000": 6,
+      "ge_100000": 2,
+      "ge_50000_pct": 13.6,
+      "ge_100000_pct": 4.5,
+      "max_yen": 431570,
+      "line_patterns": {
+        "AAA": 13,
+        "AAB": 12,
+        "ABA": 9,
+        "ABB": 4,
+        "ABC": 6
+      },
+      "line_pattern_pct": {
+        "AAA": 29.5,
+        "AAB": 27.3,
+        "ABA": 20.5,
+        "ABB": 9.1,
+        "ABC": 13.6
+      },
+      "first_second_split_pct": 43.2,
+      "abc_pct": 13.6,
+      "winner_only_podium_pct": 20.5,
+      "reversed_12_pct": 27.3,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 18,
+        "単騎": 1,
+        "番手": 24
+      },
+      "winner_role_pct": {
+        "ライン先頭": 40.9,
+        "番手": 54.5,
+        "3番手以降": 2.3,
+        "単騎": 2.3
+      },
+      "winning_methods": {
+        "差": 24,
+        "捲": 12,
+        "逃": 8
+      },
+      "winning_methods_pct": {
+        "逃": 18.2,
+        "捲": 27.3,
+        "差": 54.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "和歌山競輪": {
+      "races": 42,
+      "winning_combinations": 42,
+      "classified_combinations": 42,
+      "races_missing_paid": 0,
+      "mean_yen": 37491.9,
+      "median_yen": 9670.0,
+      "ge_10000": 21,
+      "ge_50000": 5,
+      "ge_100000": 3,
+      "ge_50000_pct": 11.9,
+      "ge_100000_pct": 7.1,
+      "max_yen": 718250,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 13,
+        "ABA": 5,
+        "ABB": 8,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 16.7,
+        "AAB": 31.0,
+        "ABA": 11.9,
+        "ABB": 19.0,
+        "ABC": 21.4
+      },
+      "first_second_split_pct": 52.4,
+      "abc_pct": 21.4,
+      "winner_only_podium_pct": 35.7,
+      "reversed_12_pct": 14.3,
+      "winner_roles": {
+        "ライン先頭": 22,
+        "単騎": 2,
+        "番手": 18
+      },
+      "winner_role_pct": {
+        "ライン先頭": 52.4,
+        "番手": 42.9,
+        "3番手以降": 0.0,
+        "単騎": 4.8
+      },
+      "winning_methods": {
+        "差": 24,
+        "捲": 17,
+        "逃": 1
+      },
+      "winning_methods_pct": {
+        "逃": 2.4,
+        "捲": 40.5,
+        "差": 57.1,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "四日市競輪": {
+      "races": 116,
+      "winning_combinations": 116,
+      "classified_combinations": 116,
+      "races_missing_paid": 0,
+      "mean_yen": 30884.0,
+      "median_yen": 11455.0,
+      "ge_10000": 61,
+      "ge_50000": 21,
+      "ge_100000": 9,
+      "ge_50000_pct": 18.1,
+      "ge_100000_pct": 7.8,
+      "max_yen": 414440,
+      "line_patterns": {
+        "AAA": 19,
+        "AAB": 38,
+        "ABA": 17,
+        "ABB": 19,
+        "ABC": 23
+      },
+      "line_pattern_pct": {
+        "AAA": 16.4,
+        "AAB": 32.8,
+        "ABA": 14.7,
+        "ABB": 16.4,
+        "ABC": 19.8
+      },
+      "first_second_split_pct": 50.9,
+      "abc_pct": 19.8,
+      "winner_only_podium_pct": 32.8,
+      "reversed_12_pct": 26.7,
+      "winner_roles": {
+        "3番手以降": 3,
+        "ライン先頭": 41,
+        "単騎": 4,
+        "番手": 68
+      },
+      "winner_role_pct": {
+        "ライン先頭": 35.3,
+        "番手": 58.6,
+        "3番手以降": 2.6,
+        "単騎": 3.4
+      },
+      "winning_methods": {
+        "差": 74,
+        "捲": 33,
+        "逃": 9
+      },
+      "winning_methods_pct": {
+        "逃": 7.8,
+        "捲": 28.4,
+        "差": 63.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "大垣競輪": {
+      "races": 38,
+      "winning_combinations": 38,
+      "classified_combinations": 38,
+      "races_missing_paid": 0,
+      "mean_yen": 24298.9,
+      "median_yen": 11610.0,
+      "ge_10000": 21,
+      "ge_50000": 6,
+      "ge_100000": 2,
+      "ge_50000_pct": 15.8,
+      "ge_100000_pct": 5.3,
+      "max_yen": 158420,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 13,
+        "ABA": 5,
+        "ABB": 5,
+        "ABC": 8
+      },
+      "line_pattern_pct": {
+        "AAA": 18.4,
+        "AAB": 34.2,
+        "ABA": 13.2,
+        "ABB": 13.2,
+        "ABC": 21.1
+      },
+      "first_second_split_pct": 47.4,
+      "abc_pct": 21.1,
+      "winner_only_podium_pct": 31.6,
+      "reversed_12_pct": 26.3,
+      "winner_roles": {
+        "ライン先頭": 15,
+        "単騎": 1,
+        "番手": 22
+      },
+      "winner_role_pct": {
+        "ライン先頭": 39.5,
+        "番手": 57.9,
+        "3番手以降": 0.0,
+        "単騎": 2.6
+      },
+      "winning_methods": {
+        "差": 23,
+        "捲": 11,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 10.5,
+        "捲": 28.9,
+        "差": 60.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "大宮競輪": {
+      "races": 48,
+      "winning_combinations": 48,
+      "classified_combinations": 48,
+      "races_missing_paid": 0,
+      "mean_yen": 28461.9,
+      "median_yen": 8975.0,
+      "ge_10000": 23,
+      "ge_50000": 8,
+      "ge_100000": 4,
+      "ge_50000_pct": 16.7,
+      "ge_100000_pct": 8.3,
+      "max_yen": 185460,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 15,
+        "ABA": 9,
+        "ABB": 8,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 14.6,
+        "AAB": 31.2,
+        "ABA": 18.8,
+        "ABB": 16.7,
+        "ABC": 18.8
+      },
+      "first_second_split_pct": 54.2,
+      "abc_pct": 18.8,
+      "winner_only_podium_pct": 31.2,
+      "reversed_12_pct": 22.9,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 19,
+        "単騎": 2,
+        "番手": 26
+      },
+      "winner_role_pct": {
+        "ライン先頭": 39.6,
+        "番手": 54.2,
+        "3番手以降": 2.1,
+        "単騎": 4.2
+      },
+      "winning_methods": {
+        "差": 31,
+        "捲": 14,
+        "逃": 3
+      },
+      "winning_methods_pct": {
+        "逃": 6.2,
+        "捲": 29.2,
+        "差": 64.6,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "奈良競輪": {
+      "races": 74,
+      "winning_combinations": 74,
+      "classified_combinations": 74,
+      "races_missing_paid": 0,
+      "mean_yen": 25765.5,
+      "median_yen": 7395.0,
+      "ge_10000": 34,
+      "ge_50000": 9,
+      "ge_100000": 6,
+      "ge_50000_pct": 12.2,
+      "ge_100000_pct": 8.1,
+      "max_yen": 276380,
+      "line_patterns": {
+        "AAA": 12,
+        "AAB": 27,
+        "ABA": 16,
+        "ABB": 9,
+        "ABC": 10
+      },
+      "line_pattern_pct": {
+        "AAA": 16.2,
+        "AAB": 36.5,
+        "ABA": 21.6,
+        "ABB": 12.2,
+        "ABC": 13.5
+      },
+      "first_second_split_pct": 47.3,
+      "abc_pct": 13.5,
+      "winner_only_podium_pct": 24.3,
+      "reversed_12_pct": 20.3,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 33,
+        "単騎": 1,
+        "番手": 38
+      },
+      "winner_role_pct": {
+        "ライン先頭": 44.6,
+        "番手": 51.4,
+        "3番手以降": 2.7,
+        "単騎": 1.4
+      },
+      "winning_methods": {
+        "差": 33,
+        "捲": 25,
+        "逃": 16
+      },
+      "winning_methods_pct": {
+        "逃": 21.6,
+        "捲": 33.8,
+        "差": 44.6,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "宇都宮競輪": {
+      "races": 43,
+      "winning_combinations": 44,
+      "classified_combinations": 44,
+      "races_missing_paid": 0,
+      "mean_yen": 41811.4,
+      "median_yen": 13810.0,
+      "ge_10000": 27,
+      "ge_50000": 10,
+      "ge_100000": 7,
+      "ge_50000_pct": 22.7,
+      "ge_100000_pct": 15.9,
+      "max_yen": 367780,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 16,
+        "ABA": 9,
+        "ABB": 3,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 15.9,
+        "AAB": 36.4,
+        "ABA": 20.5,
+        "ABB": 6.8,
+        "ABC": 20.5
+      },
+      "first_second_split_pct": 47.7,
+      "abc_pct": 20.5,
+      "winner_only_podium_pct": 27.3,
+      "reversed_12_pct": 34.1,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 16,
+        "番手": 26
+      },
+      "winner_role_pct": {
+        "ライン先頭": 36.4,
+        "番手": 59.1,
+        "3番手以降": 4.5,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "ク": 1,
+        "差": 30,
+        "捲": 9,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 9.1,
+        "捲": 20.5,
+        "差": 68.2,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "富山競輪": {
+      "races": 86,
+      "winning_combinations": 87,
+      "classified_combinations": 87,
+      "races_missing_paid": 0,
+      "mean_yen": 29573.7,
+      "median_yen": 7920,
+      "ge_10000": 38,
+      "ge_50000": 7,
+      "ge_100000": 3,
+      "ge_50000_pct": 8.0,
+      "ge_100000_pct": 3.4,
+      "max_yen": 693790,
+      "line_patterns": {
+        "AAA": 17,
+        "AAB": 25,
+        "ABA": 11,
+        "ABB": 20,
+        "ABC": 14
+      },
+      "line_pattern_pct": {
+        "AAA": 19.5,
+        "AAB": 28.7,
+        "ABA": 12.6,
+        "ABB": 23.0,
+        "ABC": 16.1
+      },
+      "first_second_split_pct": 51.7,
+      "abc_pct": 16.1,
+      "winner_only_podium_pct": 36.8,
+      "reversed_12_pct": 19.5,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 39,
+        "単騎": 2,
+        "番手": 44
+      },
+      "winner_role_pct": {
+        "ライン先頭": 44.8,
+        "番手": 50.6,
+        "3番手以降": 2.3,
+        "単騎": 2.3
+      },
+      "winning_methods": {
+        "差": 38,
+        "捲": 32,
+        "逃": 17
+      },
+      "winning_methods_pct": {
+        "逃": 19.5,
+        "捲": 36.8,
+        "差": 43.7,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "小倉競輪": {
+      "races": 41,
+      "winning_combinations": 41,
+      "classified_combinations": 41,
+      "races_missing_paid": 0,
+      "mean_yen": 32157.3,
+      "median_yen": 6240,
+      "ge_10000": 16,
+      "ge_50000": 7,
+      "ge_100000": 4,
+      "ge_50000_pct": 17.1,
+      "ge_100000_pct": 9.8,
+      "max_yen": 368020,
+      "line_patterns": {
+        "AAA": 11,
+        "AAB": 13,
+        "ABA": 6,
+        "ABB": 6,
+        "ABC": 5
+      },
+      "line_pattern_pct": {
+        "AAA": 26.8,
+        "AAB": 31.7,
+        "ABA": 14.6,
+        "ABB": 14.6,
+        "ABC": 12.2
+      },
+      "first_second_split_pct": 41.5,
+      "abc_pct": 12.2,
+      "winner_only_podium_pct": 26.8,
+      "reversed_12_pct": 26.8,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 19,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 46.3,
+        "番手": 48.8,
+        "3番手以降": 4.9,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 21,
+        "捲": 18,
+        "逃": 2
+      },
+      "winning_methods_pct": {
+        "逃": 4.9,
+        "捲": 43.9,
+        "差": 51.2,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "小松島競輪": {
+      "races": 41,
+      "winning_combinations": 43,
+      "classified_combinations": 43,
+      "races_missing_paid": 0,
+      "mean_yen": 25084.9,
+      "median_yen": 4800,
+      "ge_10000": 18,
+      "ge_50000": 7,
+      "ge_100000": 5,
+      "ge_50000_pct": 16.3,
+      "ge_100000_pct": 11.6,
+      "max_yen": 174430,
+      "line_patterns": {
+        "AAA": 10,
+        "AAB": 14,
+        "ABA": 4,
+        "ABB": 8,
+        "ABC": 7
+      },
+      "line_pattern_pct": {
+        "AAA": 23.3,
+        "AAB": 32.6,
+        "ABA": 9.3,
+        "ABB": 18.6,
+        "ABC": 16.3
+      },
+      "first_second_split_pct": 44.2,
+      "abc_pct": 16.3,
+      "winner_only_podium_pct": 30.2,
+      "reversed_12_pct": 25.6,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 15,
+        "単騎": 2,
+        "番手": 25
+      },
+      "winner_role_pct": {
+        "ライン先頭": 34.9,
+        "番手": 58.1,
+        "3番手以降": 2.3,
+        "単騎": 4.7
+      },
+      "winning_methods": {
+        "差": 26,
+        "捲": 13,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 9.3,
+        "捲": 30.2,
+        "差": 60.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "小田原競輪": {
+      "races": 83,
+      "winning_combinations": 84,
+      "classified_combinations": 84,
+      "races_missing_paid": 0,
+      "mean_yen": 24767.3,
+      "median_yen": 5350.0,
+      "ge_10000": 29,
+      "ge_50000": 10,
+      "ge_100000": 8,
+      "ge_50000_pct": 11.9,
+      "ge_100000_pct": 9.5,
+      "max_yen": 261820,
+      "line_patterns": {
+        "AAA": 25,
+        "AAB": 25,
+        "ABA": 12,
+        "ABB": 9,
+        "ABC": 13
+      },
+      "line_pattern_pct": {
+        "AAA": 29.8,
+        "AAB": 29.8,
+        "ABA": 14.3,
+        "ABB": 10.7,
+        "ABC": 15.5
+      },
+      "first_second_split_pct": 40.5,
+      "abc_pct": 15.5,
+      "winner_only_podium_pct": 26.2,
+      "reversed_12_pct": 20.2,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 43,
+        "番手": 40
+      },
+      "winner_role_pct": {
+        "ライン先頭": 51.2,
+        "番手": 47.6,
+        "3番手以降": 1.2,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 35,
+        "捲": 32,
+        "逃": 17
+      },
+      "winning_methods_pct": {
+        "逃": 20.2,
+        "捲": 38.1,
+        "差": 41.7,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "岐阜競輪": {
+      "races": 42,
+      "winning_combinations": 43,
+      "classified_combinations": 43,
+      "races_missing_paid": 0,
+      "mean_yen": 27489.5,
+      "median_yen": 8630,
+      "ge_10000": 20,
+      "ge_50000": 4,
+      "ge_100000": 4,
+      "ge_50000_pct": 9.3,
+      "ge_100000_pct": 9.3,
+      "max_yen": 302530,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 14,
+        "ABA": 6,
+        "ABB": 7,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 16.3,
+        "AAB": 32.6,
+        "ABA": 14.0,
+        "ABB": 16.3,
+        "ABC": 20.9
+      },
+      "first_second_split_pct": 51.2,
+      "abc_pct": 20.9,
+      "winner_only_podium_pct": 32.6,
+      "reversed_12_pct": 25.6,
+      "winner_roles": {
+        "ライン先頭": 19,
+        "単騎": 2,
+        "番手": 22
+      },
+      "winner_role_pct": {
+        "ライン先頭": 44.2,
+        "番手": 51.2,
+        "3番手以降": 0.0,
+        "単騎": 4.7
+      },
+      "winning_methods": {
+        "差": 23,
+        "捲": 15,
+        "逃": 5
+      },
+      "winning_methods_pct": {
+        "逃": 11.6,
+        "捲": 34.9,
+        "差": 53.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "川崎競輪": {
+      "races": 47,
+      "winning_combinations": 47,
+      "classified_combinations": 47,
+      "races_missing_paid": 0,
+      "mean_yen": 16969.8,
+      "median_yen": 8120,
+      "ge_10000": 19,
+      "ge_50000": 4,
+      "ge_100000": 1,
+      "ge_50000_pct": 8.5,
+      "ge_100000_pct": 2.1,
+      "max_yen": 204840,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 18,
+        "ABA": 7,
+        "ABB": 9,
+        "ABC": 6
+      },
+      "line_pattern_pct": {
+        "AAA": 14.9,
+        "AAB": 38.3,
+        "ABA": 14.9,
+        "ABB": 19.1,
+        "ABC": 12.8
+      },
+      "first_second_split_pct": 46.8,
+      "abc_pct": 12.8,
+      "winner_only_podium_pct": 29.8,
+      "reversed_12_pct": 23.4,
+      "winner_roles": {
+        "ライン先頭": 26,
+        "単騎": 1,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 55.3,
+        "番手": 42.6,
+        "3番手以降": 0.0,
+        "単騎": 2.1
+      },
+      "winning_methods": {
+        "差": 21,
+        "捲": 16,
+        "逃": 10
+      },
+      "winning_methods_pct": {
+        "逃": 21.3,
+        "捲": 34.0,
+        "差": 44.7,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "平塚競輪": {
+      "races": 42,
+      "winning_combinations": 43,
+      "classified_combinations": 43,
+      "races_missing_paid": 0,
+      "mean_yen": 30925.8,
+      "median_yen": 4240,
+      "ge_10000": 11,
+      "ge_50000": 7,
+      "ge_100000": 2,
+      "ge_50000_pct": 16.3,
+      "ge_100000_pct": 4.7,
+      "max_yen": 488830,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 10,
+        "ABA": 7,
+        "ABB": 12,
+        "ABC": 7
+      },
+      "line_pattern_pct": {
+        "AAA": 16.3,
+        "AAB": 23.3,
+        "ABA": 16.3,
+        "ABB": 27.9,
+        "ABC": 16.3
+      },
+      "first_second_split_pct": 60.5,
+      "abc_pct": 16.3,
+      "winner_only_podium_pct": 39.5,
+      "reversed_12_pct": 23.3,
+      "winner_roles": {
+        "3番手以降": 4,
+        "ライン先頭": 17,
+        "単騎": 2,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 39.5,
+        "番手": 46.5,
+        "3番手以降": 9.3,
+        "単騎": 4.7
+      },
+      "winning_methods": {
+        "差": 21,
+        "捲": 19,
+        "逃": 3
+      },
+      "winning_methods_pct": {
+        "逃": 7.0,
+        "捲": 44.2,
+        "差": 48.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "広島競輪": {
+      "races": 46,
+      "winning_combinations": 46,
+      "classified_combinations": 46,
+      "races_missing_paid": 0,
+      "mean_yen": 22350.9,
+      "median_yen": 5720.0,
+      "ge_10000": 16,
+      "ge_50000": 6,
+      "ge_100000": 2,
+      "ge_50000_pct": 13.0,
+      "ge_100000_pct": 4.3,
+      "max_yen": 190170,
+      "line_patterns": {
+        "AAA": 11,
+        "AAB": 10,
+        "ABA": 4,
+        "ABB": 9,
+        "ABC": 12
+      },
+      "line_pattern_pct": {
+        "AAA": 23.9,
+        "AAB": 21.7,
+        "ABA": 8.7,
+        "ABB": 19.6,
+        "ABC": 26.1
+      },
+      "first_second_split_pct": 54.3,
+      "abc_pct": 26.1,
+      "winner_only_podium_pct": 37.0,
+      "reversed_12_pct": 17.4,
+      "winner_roles": {
+        "ライン先頭": 22,
+        "単騎": 4,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 47.8,
+        "番手": 43.5,
+        "3番手以降": 0.0,
+        "単騎": 8.7
+      },
+      "winning_methods": {
+        "差": 19,
+        "捲": 19,
+        "逃": 8
+      },
+      "winning_methods_pct": {
+        "逃": 17.4,
+        "捲": 41.3,
+        "差": 41.3,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "弥彦競輪": {
+      "races": 43,
+      "winning_combinations": 43,
+      "classified_combinations": 43,
+      "races_missing_paid": 0,
+      "mean_yen": 14084.0,
+      "median_yen": 6940,
+      "ge_10000": 15,
+      "ge_50000": 3,
+      "ge_100000": 1,
+      "ge_50000_pct": 7.0,
+      "ge_100000_pct": 2.3,
+      "max_yen": 100030,
+      "line_patterns": {
+        "AAA": 6,
+        "AAB": 17,
+        "ABA": 8,
+        "ABB": 5,
+        "ABC": 7
+      },
+      "line_pattern_pct": {
+        "AAA": 14.0,
+        "AAB": 39.5,
+        "ABA": 18.6,
+        "ABB": 11.6,
+        "ABC": 16.3
+      },
+      "first_second_split_pct": 46.5,
+      "abc_pct": 16.3,
+      "winner_only_podium_pct": 25.6,
+      "reversed_12_pct": 25.6,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 16,
+        "単騎": 1,
+        "番手": 25
+      },
+      "winner_role_pct": {
+        "ライン先頭": 37.2,
+        "番手": 58.1,
+        "3番手以降": 2.3,
+        "単騎": 2.3
+      },
+      "winning_methods": {
+        "差": 25,
+        "捲": 14,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 9.3,
+        "捲": 32.6,
+        "差": 58.1,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "松戸競輪": {
+      "races": 37,
+      "winning_combinations": 38,
+      "classified_combinations": 38,
+      "races_missing_paid": 0,
+      "mean_yen": 29555.5,
+      "median_yen": 6990.0,
+      "ge_10000": 18,
+      "ge_50000": 3,
+      "ge_100000": 2,
+      "ge_50000_pct": 7.9,
+      "ge_100000_pct": 5.3,
+      "max_yen": 360880,
+      "line_patterns": {
+        "AAA": 8,
+        "AAB": 14,
+        "ABA": 6,
+        "ABB": 7,
+        "ABC": 3
+      },
+      "line_pattern_pct": {
+        "AAA": 21.1,
+        "AAB": 36.8,
+        "ABA": 15.8,
+        "ABB": 18.4,
+        "ABC": 7.9
+      },
+      "first_second_split_pct": 42.1,
+      "abc_pct": 7.9,
+      "winner_only_podium_pct": 21.1,
+      "reversed_12_pct": 26.3,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 20,
+        "単騎": 2,
+        "番手": 15
+      },
+      "winner_role_pct": {
+        "ライン先頭": 52.6,
+        "番手": 39.5,
+        "3番手以降": 2.6,
+        "単騎": 5.3
+      },
+      "winning_methods": {
+        "差": 15,
+        "捲": 18,
+        "逃": 5
+      },
+      "winning_methods_pct": {
+        "逃": 13.2,
+        "捲": 47.4,
+        "差": 39.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "松阪競輪": {
+      "races": 90,
+      "winning_combinations": 91,
+      "classified_combinations": 91,
+      "races_missing_paid": 0,
+      "mean_yen": 23479.2,
+      "median_yen": 6630,
+      "ge_10000": 35,
+      "ge_50000": 10,
+      "ge_100000": 4,
+      "ge_50000_pct": 11.0,
+      "ge_100000_pct": 4.4,
+      "max_yen": 599330,
+      "line_patterns": {
+        "AAA": 16,
+        "AAB": 32,
+        "ABA": 13,
+        "ABB": 12,
+        "ABC": 18
+      },
+      "line_pattern_pct": {
+        "AAA": 17.6,
+        "AAB": 35.2,
+        "ABA": 14.3,
+        "ABB": 13.2,
+        "ABC": 19.8
+      },
+      "first_second_split_pct": 47.3,
+      "abc_pct": 19.8,
+      "winner_only_podium_pct": 30.8,
+      "reversed_12_pct": 22.0,
+      "winner_roles": {
+        "ライン先頭": 30,
+        "単騎": 2,
+        "番手": 59
+      },
+      "winner_role_pct": {
+        "ライン先頭": 33.0,
+        "番手": 64.8,
+        "3番手以降": 0.0,
+        "単騎": 2.2
+      },
+      "winning_methods": {
+        "差": 55,
+        "捲": 28,
+        "逃": 8
+      },
+      "winning_methods_pct": {
+        "逃": 8.8,
+        "捲": 30.8,
+        "差": 60.4,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "武雄競輪": {
+      "races": 41,
+      "winning_combinations": 41,
+      "classified_combinations": 41,
+      "races_missing_paid": 0,
+      "mean_yen": 25267.8,
+      "median_yen": 6640,
+      "ge_10000": 17,
+      "ge_50000": 5,
+      "ge_100000": 2,
+      "ge_50000_pct": 12.2,
+      "ge_100000_pct": 4.9,
+      "max_yen": 442310,
+      "line_patterns": {
+        "AAA": 9,
+        "AAB": 14,
+        "ABA": 10,
+        "ABB": 3,
+        "ABC": 5
+      },
+      "line_pattern_pct": {
+        "AAA": 22.0,
+        "AAB": 34.1,
+        "ABA": 24.4,
+        "ABB": 7.3,
+        "ABC": 12.2
+      },
+      "first_second_split_pct": 43.9,
+      "abc_pct": 12.2,
+      "winner_only_podium_pct": 17.1,
+      "reversed_12_pct": 26.8,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 19,
+        "単騎": 1,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 46.3,
+        "番手": 48.8,
+        "3番手以降": 2.4,
+        "単騎": 2.4
+      },
+      "winning_methods": {
+        "差": 19,
+        "捲": 18,
+        "逃": 4
+      },
+      "winning_methods_pct": {
+        "逃": 9.8,
+        "捲": 43.9,
+        "差": 46.3,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "玉野競輪": {
+      "races": 44,
+      "winning_combinations": 47,
+      "classified_combinations": 47,
+      "races_missing_paid": 0,
+      "mean_yen": 33899.8,
+      "median_yen": 3720,
+      "ge_10000": 19,
+      "ge_50000": 7,
+      "ge_100000": 6,
+      "ge_50000_pct": 14.9,
+      "ge_100000_pct": 12.8,
+      "max_yen": 345550,
+      "line_patterns": {
+        "AAA": 9,
+        "AAB": 20,
+        "ABA": 6,
+        "ABB": 3,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 19.1,
+        "AAB": 42.6,
+        "ABA": 12.8,
+        "ABB": 6.4,
+        "ABC": 19.1
+      },
+      "first_second_split_pct": 38.3,
+      "abc_pct": 19.1,
+      "winner_only_podium_pct": 23.4,
+      "reversed_12_pct": 23.4,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 20,
+        "単騎": 1,
+        "番手": 24
+      },
+      "winner_role_pct": {
+        "ライン先頭": 42.6,
+        "番手": 51.1,
+        "3番手以降": 4.3,
+        "単騎": 2.1
+      },
+      "winning_methods": {
+        "差": 24,
+        "捲": 16,
+        "逃": 7
+      },
+      "winning_methods_pct": {
+        "逃": 14.9,
+        "捲": 34.0,
+        "差": 51.1,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "立川競輪": {
+      "races": 40,
+      "winning_combinations": 40,
+      "classified_combinations": 40,
+      "races_missing_paid": 0,
+      "mean_yen": 23072.0,
+      "median_yen": 7270.0,
+      "ge_10000": 17,
+      "ge_50000": 6,
+      "ge_100000": 3,
+      "ge_50000_pct": 15.0,
+      "ge_100000_pct": 7.5,
+      "max_yen": 161880,
+      "line_patterns": {
+        "AAA": 8,
+        "AAB": 14,
+        "ABA": 8,
+        "ABB": 4,
+        "ABC": 6
+      },
+      "line_pattern_pct": {
+        "AAA": 20.0,
+        "AAB": 35.0,
+        "ABA": 20.0,
+        "ABB": 10.0,
+        "ABC": 15.0
+      },
+      "first_second_split_pct": 45.0,
+      "abc_pct": 15.0,
+      "winner_only_podium_pct": 25.0,
+      "reversed_12_pct": 25.0,
+      "winner_roles": {
+        "3番手以降": 2,
+        "ライン先頭": 13,
+        "番手": 25
+      },
+      "winner_role_pct": {
+        "ライン先頭": 32.5,
+        "番手": 62.5,
+        "3番手以降": 5.0,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 27,
+        "捲": 6,
+        "逃": 7
+      },
+      "winning_methods_pct": {
+        "逃": 17.5,
+        "捲": 15.0,
+        "差": 67.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "西武園競輪": {
+      "races": 40,
+      "winning_combinations": 40,
+      "classified_combinations": 40,
+      "races_missing_paid": 0,
+      "mean_yen": 27303.0,
+      "median_yen": 6230.0,
+      "ge_10000": 16,
+      "ge_50000": 4,
+      "ge_100000": 3,
+      "ge_50000_pct": 10.0,
+      "ge_100000_pct": 7.5,
+      "max_yen": 272810,
+      "line_patterns": {
+        "AAA": 9,
+        "AAB": 13,
+        "ABA": 6,
+        "ABB": 10,
+        "ABC": 2
+      },
+      "line_pattern_pct": {
+        "AAA": 22.5,
+        "AAB": 32.5,
+        "ABA": 15.0,
+        "ABB": 25.0,
+        "ABC": 5.0
+      },
+      "first_second_split_pct": 45.0,
+      "abc_pct": 5.0,
+      "winner_only_podium_pct": 25.0,
+      "reversed_12_pct": 25.0,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 20,
+        "単騎": 2,
+        "番手": 17
+      },
+      "winner_role_pct": {
+        "ライン先頭": 50.0,
+        "番手": 42.5,
+        "3番手以降": 2.5,
+        "単騎": 5.0
+      },
+      "winning_methods": {
+        "差": 18,
+        "捲": 13,
+        "逃": 9
+      },
+      "winning_methods_pct": {
+        "逃": 22.5,
+        "捲": 32.5,
+        "差": 45.0,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "豊橋競輪": {
+      "races": 39,
+      "winning_combinations": 39,
+      "classified_combinations": 39,
+      "races_missing_paid": 0,
+      "mean_yen": 16281.8,
+      "median_yen": 8520,
+      "ge_10000": 17,
+      "ge_50000": 4,
+      "ge_100000": 0,
+      "ge_50000_pct": 10.3,
+      "ge_100000_pct": 0.0,
+      "max_yen": 67140,
+      "line_patterns": {
+        "AAA": 10,
+        "AAB": 13,
+        "ABA": 3,
+        "ABB": 4,
+        "ABC": 9
+      },
+      "line_pattern_pct": {
+        "AAA": 25.6,
+        "AAB": 33.3,
+        "ABA": 7.7,
+        "ABB": 10.3,
+        "ABC": 23.1
+      },
+      "first_second_split_pct": 41.0,
+      "abc_pct": 23.1,
+      "winner_only_podium_pct": 30.8,
+      "reversed_12_pct": 20.5,
+      "winner_roles": {
+        "3番手以降": 1,
+        "ライン先頭": 19,
+        "単騎": 1,
+        "番手": 18
+      },
+      "winner_role_pct": {
+        "ライン先頭": 48.7,
+        "番手": 46.2,
+        "3番手以降": 2.6,
+        "単騎": 2.6
+      },
+      "winning_methods": {
+        "差": 20,
+        "捲": 13,
+        "逃": 6
+      },
+      "winning_methods_pct": {
+        "逃": 15.4,
+        "捲": 33.3,
+        "差": 51.3,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "青森競輪": {
+      "races": 44,
+      "winning_combinations": 45,
+      "classified_combinations": 45,
+      "races_missing_paid": 0,
+      "mean_yen": 16446.0,
+      "median_yen": 6310,
+      "ge_10000": 18,
+      "ge_50000": 5,
+      "ge_100000": 0,
+      "ge_50000_pct": 11.1,
+      "ge_100000_pct": 0.0,
+      "max_yen": 86880,
+      "line_patterns": {
+        "AAA": 9,
+        "AAB": 15,
+        "ABA": 7,
+        "ABB": 9,
+        "ABC": 5
+      },
+      "line_pattern_pct": {
+        "AAA": 20.0,
+        "AAB": 33.3,
+        "ABA": 15.6,
+        "ABB": 20.0,
+        "ABC": 11.1
+      },
+      "first_second_split_pct": 46.7,
+      "abc_pct": 11.1,
+      "winner_only_podium_pct": 28.9,
+      "reversed_12_pct": 33.3,
+      "winner_roles": {
+        "ライン先頭": 16,
+        "単騎": 1,
+        "番手": 28
+      },
+      "winner_role_pct": {
+        "ライン先頭": 35.6,
+        "番手": 62.2,
+        "3番手以降": 0.0,
+        "単騎": 2.2
+      },
+      "winning_methods": {
+        "差": 28,
+        "捲": 12,
+        "逃": 5
+      },
+      "winning_methods_pct": {
+        "逃": 11.1,
+        "捲": 26.7,
+        "差": 62.2,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "静岡競輪": {
+      "races": 40,
+      "winning_combinations": 40,
+      "classified_combinations": 40,
+      "races_missing_paid": 0,
+      "mean_yen": 24078.2,
+      "median_yen": 5410.0,
+      "ge_10000": 16,
+      "ge_50000": 7,
+      "ge_100000": 3,
+      "ge_50000_pct": 17.5,
+      "ge_100000_pct": 7.5,
+      "max_yen": 189120,
+      "line_patterns": {
+        "AAA": 3,
+        "AAB": 20,
+        "ABA": 1,
+        "ABB": 9,
+        "ABC": 7
+      },
+      "line_pattern_pct": {
+        "AAA": 7.5,
+        "AAB": 50.0,
+        "ABA": 2.5,
+        "ABB": 22.5,
+        "ABC": 17.5
+      },
+      "first_second_split_pct": 42.5,
+      "abc_pct": 17.5,
+      "winner_only_podium_pct": 30.0,
+      "reversed_12_pct": 20.0,
+      "winner_roles": {
+        "ライン先頭": 22,
+        "単騎": 4,
+        "番手": 14
+      },
+      "winner_role_pct": {
+        "ライン先頭": 55.0,
+        "番手": 35.0,
+        "3番手以降": 0.0,
+        "単騎": 10.0
+      },
+      "winning_methods": {
+        "差": 15,
+        "捲": 17,
+        "逃": 8
+      },
+      "winning_methods_pct": {
+        "逃": 20.0,
+        "捲": 42.5,
+        "差": 37.5,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "高松競輪": {
+      "races": 48,
+      "winning_combinations": 49,
+      "classified_combinations": 49,
+      "races_missing_paid": 0,
+      "mean_yen": 26270.6,
+      "median_yen": 7420,
+      "ge_10000": 22,
+      "ge_50000": 4,
+      "ge_100000": 4,
+      "ge_50000_pct": 8.2,
+      "ge_100000_pct": 8.2,
+      "max_yen": 310200,
+      "line_patterns": {
+        "AAA": 7,
+        "AAB": 20,
+        "ABA": 6,
+        "ABB": 6,
+        "ABC": 10
+      },
+      "line_pattern_pct": {
+        "AAA": 14.3,
+        "AAB": 40.8,
+        "ABA": 12.2,
+        "ABB": 12.2,
+        "ABC": 20.4
+      },
+      "first_second_split_pct": 44.9,
+      "abc_pct": 20.4,
+      "winner_only_podium_pct": 30.6,
+      "reversed_12_pct": 22.4,
+      "winner_roles": {
+        "ライン先頭": 28,
+        "単騎": 1,
+        "番手": 20
+      },
+      "winner_role_pct": {
+        "ライン先頭": 57.1,
+        "番手": 40.8,
+        "3番手以降": 0.0,
+        "単騎": 2.0
+      },
+      "winning_methods": {
+        "差": 20,
+        "捲": 18,
+        "逃": 11
+      },
+      "winning_methods_pct": {
+        "逃": 22.4,
+        "捲": 36.7,
+        "差": 40.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    },
+    "高知競輪": {
+      "races": 39,
+      "winning_combinations": 41,
+      "classified_combinations": 41,
+      "races_missing_paid": 0,
+      "mean_yen": 26736.1,
+      "median_yen": 10430,
+      "ge_10000": 22,
+      "ge_50000": 5,
+      "ge_100000": 1,
+      "ge_50000_pct": 12.2,
+      "ge_100000_pct": 2.4,
+      "max_yen": 358200,
+      "line_patterns": {
+        "AAA": 5,
+        "AAB": 20,
+        "ABA": 3,
+        "ABB": 9,
+        "ABC": 4
+      },
+      "line_pattern_pct": {
+        "AAA": 12.2,
+        "AAB": 48.8,
+        "ABA": 7.3,
+        "ABB": 22.0,
+        "ABC": 9.8
+      },
+      "first_second_split_pct": 39.0,
+      "abc_pct": 9.8,
+      "winner_only_podium_pct": 31.7,
+      "reversed_12_pct": 19.5,
+      "winner_roles": {
+        "3番手以降": 3,
+        "ライン先頭": 21,
+        "番手": 17
+      },
+      "winner_role_pct": {
+        "ライン先頭": 51.2,
+        "番手": 41.5,
+        "3番手以降": 7.3,
+        "単騎": 0.0
+      },
+      "winning_methods": {
+        "差": 20,
+        "捲": 18,
+        "逃": 3
+      },
+      "winning_methods_pct": {
+        "逃": 7.3,
+        "捲": 43.9,
+        "差": 48.8,
+        "マ": 0.0,
+        "逃げ": 0.0,
+        "捲り": 0.0,
+        "差し": 0.0
+      }
+    }
+  }
+}
