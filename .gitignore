@@ -1,0 +1,9 @@
+# Local scratch / reconstructed, uncompressed databases
+data/local/
+.cache/
+__pycache__/
+*.pyc
+*.partial
+*.building.sqlite
+*.unpacking
+.DS_Store
