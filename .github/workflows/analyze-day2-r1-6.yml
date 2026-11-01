@@ -1,0 +1,69 @@
+name: Analyze G3 day 2 R1-6 payouts
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/analyze-day2-r1-6.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: analyze-g3-day2-r1-6
+  cancel-in-progress: false
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check analysis arithmetic, line logic, and race-day parsing
+        run: python -m unittest discover -s tests -p "test_day2*.py" -v
+      - name: Analyze all five years
+        run: python scripts/analyze_day2_r1_6.py
+      - name: Inspect report and enforce primary integrity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          p="reports/day2_r1_6/all_2022_2026h1_statistics.json"
+          with open(p,encoding="utf-8") as f: d=json.load(f)
+          q=d["quality"]
+          print("QUALITY:",json.dumps(q,ensure_ascii=False))
+          if q["selected_races"] < 200:
+              raise RuntimeError("Unexpectedly small day2 R1-6 sample")
+          if q["winning_payout_rows"] < 200:
+              raise RuntimeError("Unexpectedly few paid trifecta rows")
+          # Unexpected race-id/date mismatches must be visible, not silently ignored.
+          if q["race_id_date_mismatches"]:
+              print("WARNING: investigate race-id/date mismatches in exported rows")
+          if q["unclassified_winning_payout_rows"]:
+              print("WARNING: unclassified predicted-line combinations")
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as f:
+              f.write("# G3 開催2日目・1〜6R\n\n")
+              f.write(f"レース {q['selected_races']:,}R / 的中配当 {q['winning_payout_rows']:,}件\n\n")
+              for k in ("mean","median","p90","max"):
+                  f.write(f"- {k}: {d['overall'][k]:,.0f}円\n")
+              f.write("\nレポート: \`reports/day2_r1_6/all_2022_2026h1_report.md\`\n")
+          PY
+      - name: Commit numerical results to G3
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/day2_r1_6
+          git diff --cached --quiet && exit 0
+          git commit -m 'analysis: G3 day2 R1-6 trifecta distribution and line outcome report'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify published report
+        run: |
+          git fetch origin main
+          git cat-file -e origin/main:reports/day2_r1_6/all_2022_2026h1_report.md
+          git cat-file -e origin/main:reports/day2_r1_6/all_2022_2026h1_statistics.json
+          git cat-file -e origin/main:reports/day2_r1_6/all_2022_2026h1_race_payout_rows.csv
